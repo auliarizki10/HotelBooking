@@ -10,7 +10,7 @@ include '.includes/toast_notification.php';
         <!-- Tabel dengan baris yang dapat di hover -->
          <div class="card">
             <!-- Header tabel -->
-             <div class="card-header d-flex justify-content-between align-items-center">
+             <div class="card-header d-flex justify-content-between align-items-center bg-primary">
                 <h4>Semua Pesanan</h4>
             </div>
              <div class="card-body">
@@ -20,10 +20,11 @@ include '.includes/toast_notification.php';
                         <thead>
                             <tr class="text-center">
                                 <th width="50px">#</th>
-                                <th>Judul Post</th>
-                                <th>Penulis</th>
-                                <th>Kategori</th>
-                                <th width="150px">Pilihan</th>
+                                <th>ID pemesanan</th>
+                                <th>ID tamu</th>
+                                <th>ID kamar</th>
+                                <th>Tanggal Check-in</th>
+                                <th>Tanggal Check-out</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">

@@ -2,22 +2,6 @@
 include (".includes/header_user.php");
 $title = "Dashboard";
 ?>
-<<<<<<< HEAD
-<div class="container-xxl flex-grow-1 container-p-y">
-<div class="d-flex justify-content-between flex-column-reverse flex-lg-row align-items-center pt-12 pb-10">
-
-<!--Background burem-->
-<img src="assets/img/hotel/hotel.jpg" 
-alt="hero background" class="position-absolute top-0 start-50 translate-middle-x object-fit-cover w-100" data-speed="1"  style="filter: blur(8px); height: 85%;">
-
-</div>
-
-<h1 class="position-absolute top-50 start-50 translate-middle text-white z-3 fw-bold fs-1">HOOKING</h1>
-<p class="position-absolute top-50 start-50 translate-middle text-white z-1 fw-bold fs-5" style="padding-top: 6%;">hotel booking terkeren semuka bumi dengan harga gokil berkualitas</p>
-
-<!-- yang ada orang main komputer -->
-<section class="pricing-free-trial bg-label-primary rounded-pill" style="margin-top: 400px;">
-=======
 
 <!-- video hotel -->
 <div class="position-fixed top-0 start-0 w-100 video-wrapper">
@@ -45,20 +29,13 @@ alt="hero background" class="position-absolute top-0 start-50 translate-middle-x
   <!-- yang ada orang main komputer -->
 <div class="container-xxl flex-grow-1 container-p-y">
 <section class="pricing-free-trial bg-label-primary rounded-pill">
->>>>>>> efb978f417b9691cc075e61b655ccdddce844628
   <div class="container">
     <div class="position-relative">
       <div class="d-flex justify-content-between flex-column-reverse flex-lg-row align-items-center pt-12 pb-10">
         <div class="text-center text-lg-start">
-<<<<<<< HEAD
-          <h4 class="text-primary mb-2">Mencari Hotel dengan kamar dan kualitas yang keren? HOOKING IN HERE!!</h4>
-          <p class="text-body mb-6 mb-md-11">You will get full access to with all the features for 14 days.</p>
-          <a href="" class="btn btn-primary">Start 14-day free trial</a>
-=======
           <h4 class="text-primary mb-2">Mencari Hotel dengan kamar dan kualitas yang top? HOOKING IN HERE!!</h4>
           <p class="text-body mb-6 mb-md-11">Rasakan kenyamanan maksimal dengan berbagai fasilitas unggulan yang kami sediakan.</p>
           <!-- <a href="" class="btn btn-primary">Start 14-day free trial</a> -->
->>>>>>> efb978f417b9691cc075e61b655ccdddce844628
         </div>
         <!-- image -->
         <div class="text-center">
@@ -68,8 +45,6 @@ alt="hero background" class="position-absolute top-0 start-50 translate-middle-x
     </div>
   </div>
   </section>
-<<<<<<< HEAD
-=======
   <!-- /yang ada orang main komputer -->
 
   <!-- 3 card tentang -->
@@ -114,13 +89,8 @@ alt="hero background" class="position-absolute top-0 start-50 translate-middle-x
 </div>
 <!-- /3 card tentang -->
 </div>
->>>>>>> efb978f417b9691cc075e61b655ccdddce844628
 </div>
 
 <?php
 include (".includes/footer.php");
-<<<<<<< HEAD
-?>
-=======
  
->>>>>>> efb978f417b9691cc075e61b655ccdddce844628

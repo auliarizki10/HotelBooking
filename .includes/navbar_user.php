@@ -1,38 +1,35 @@
 <!-- Navbar -->
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl
-navbar-detached align-items-center " id="layout-navbar">
+navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-  <nav class="navbar navbar-example navbar-expand-lg">
+  <nav class="navbar navbar-example navbar-expand-lg ">
+                  <div class="container-fluid p-0">
+                  <nav class="navbar bg-body-tertiary">
                   <div class="container-fluid">
+                    <a class="navbar-brand fw-bold d-flex align-items-center fs-3" href="#">
+                    <img src="assets/img/favicon/favicon.ico" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">HOOKING</a>
+                  </div>
+                  </nav>
                     <button
                       class="navbar-toggler"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#navbar-ex-4"
                     >
-                    <span class="navbar-toggler-icon"></span>
-                    </button> 
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                    <!-- logo hotel -->
-                  <div class="navbar-brand app-brand demo d-flex py-0 me-4 me-xl-8">
-                    <img src="assets/img/favicon/favicon.ico" alt="Logo" width="40" height="40">
-                    <span class="app-brand-text demo menu-text fw-bold ms-2 ps-1 text-uppercase">HOOKING</span>
-                  </div>
-                  
                     <div class="collapse navbar-collapse" id="navbar-ex-4">
                       <div class="navbar-nav me-auto fs-5">
-                        <a class="nav-item nav-link" href="dashboard_user.php"> Home</a>
-                        <a class="nav-item nav-link" href="rooms.php">Rooms</a>
-                        <a class="nav-item nav-link" href="contact.php">Contact</a>
-                        <span></span>
+                        <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                        <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                        <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
                       </div>
-                    </div> 
+                    </div>
                   </div>
                 </nav>
-                <ul class="navbar-nav flex-row align-items-center ms-auto">
-    
-
+    <ul class="navbar-nav flex-row align-items-center ms-auto">
       <!-- User -->
       <li class="nav-item navbar-dropdown dropdown-user dropdown">
         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">

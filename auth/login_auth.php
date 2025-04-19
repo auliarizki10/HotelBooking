@@ -23,8 +23,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 'message' => 'Selamat Datang Kembali!'
             ];
             //redirect ke dashboard
-            header('Location: ../dashboard.php');
-            exit();
+            if ($row["role"] === "admin") {
+                header('Location: dashboard.php');
+            } else {
+                header ('Location: dashboard_user.php');
+            }
         } else {
             //password salah
             $_SESSION['notification'] = [

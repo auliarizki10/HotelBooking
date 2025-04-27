@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         //verifikasi password
         if (password_verify($password, $row["password"])) {
-            $_SESSION["usename"] = $username;
+            $_SESSION["username"] = $username;
             $_SESSION["name"] = $row["name"];
             $_SESSION["role"] = $row["role"];
             $_SESSION["user_id"] = $row["user_id"];
@@ -23,9 +23,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 'message' => 'Selamat Datang Kembali!'
             ];
             //redirect ke dashboard
-            if ($row["role"] === "admin") {
+            if ($row['role'] == "admin") {
+                $_SESSION['username']=$username;
+                $_SESSION['role']="admin";
                 header('Location: dashboard.php');
-            } else {
+            } elseif ($row['role'] == "user") {
+                $_SESSION['username']=$username;
+                $_SESSION['role']="user";
                 header ('Location: dashboard_user.php');
             }
         } else {

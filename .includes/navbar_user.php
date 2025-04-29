@@ -22,9 +22,9 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
 
                     <div class="collapse navbar-collapse" id="navbar-ex-4">
                       <div class="navbar-nav me-auto fs-5">
-                        <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
-                        <a class="nav-item nav-link" href="javascript:void(0)">About</a>
-                        <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                        <a class="nav-item nav-link active" href="dashboard_user.php">Home</a>
+                        <a class="nav-item nav-link" href="rooms.php">Rooms</a>
+                        <a class="nav-item nav-link" href="contact.php">Contact</a>
                       </div>
                     </div>
                   </div>

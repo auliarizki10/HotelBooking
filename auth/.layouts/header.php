@@ -7,6 +7,7 @@ if ($notification) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

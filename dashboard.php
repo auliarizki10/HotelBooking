@@ -32,22 +32,21 @@ include '.includes/toast_notification.php';
                              <?php
                              $index = 1; // variabel untuk nomor urut
                              // query untuk mengambil data dari tabel posts, users, dan categories
-                             $query = "SELECT posts.*, users.name as user_name, categories.category_name FROM posts
-                             INNER JOIN users ON posts.user_id = users.user_id
-                             LEFT JOIN categories ON posts.category_id = categories.category_id
-                             WHERE posts.user_id = $userId";
+                             $query = "SELECT pemesanan.*, users.username as user_name, kamar.tipe FROM pemesanan INNER JOIN users ON pemesanan.user_id = users.user_id LEFT JOIN kamar ON pemesanan.kamar_id = kamar.kamar_id WHERE pemesanan.user_id = $userId";
                              //eksekusi query
                              $exec = mysqli_query($conn, $query);
 
                              //perulangan untuk menampilkan setiap baris query
-                             while ($post = mysqli_fetch_assoc($exec)):
+                             while ($pemesanan = mysqli_fetch_assoc($exec)):
                              ?>
 
                              <tr>
                                 <td><?= $index++; ?></td>
-                                <td><?= $post['post_title']; ?></td>
-                                <td><?= $post['user_name']; ?></td>
-                                <td><?= $post['category_name']; ?></td>
+                                <td><?= $pemesanan['pemesanan_id']; ?></td>
+                                <td><?= $pemesanan['tamu_id']; ?></td>
+                                <td><?= $pemesanan['kamar_id']; ?></td>
+                                <td><?= $pemesanan['check_in']; ?></td>
+                                <td><?= $pemesanan['check_out']; ?></td>
                                 <td>
                                     <div class="dropdown">
                                         <!-- Tombol dropdown untuk pilihan -->
@@ -57,11 +56,11 @@ include '.includes/toast_notification.php';
                                          <!-- menu dropdown -->
                                           <div class="dropdown-menu">
                                             <!-- pilihan edit -->
-                                             <a href="edit_post.php?post_id=<?= $post['id_post']; ?>" class="dropdown-item">
+                                             <a href="edit_pemesanan.php?pemesanan_id=<?= $pemesanan['pemesanan_id']; ?>" class="dropdown-item">
                                                 <i class="bx bx-edit-alt me-2"></i> Edit
                                              </a>
                                              <!-- pilihan delete -->
-                                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletePost_<?= $post['id_post']; ?>">
+                                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>">
                                                 <i class="bx bx-trash me-2"></i> Delete
                                              </a>
                                           </div>
@@ -70,18 +69,18 @@ include '.includes/toast_notification.php';
                              </tr> 
 
                              <!-- modal untuk hapus konten blog --> 
-                             <div class="modal fade" id="deletePost_<?= $post['id_post']; ?>" tabindex="-1" aria-hidden="true">
+                             <div class="modal fade" id="deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Hapus Post?</h5>
+                                            <h5 class="modal-title">Hapus Data Pemesanan?</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="proses_post.php" method="POST">
+                                            <form action="proses_pemesanan.php" method="POST">
                                                 <div>
                                                     <p>Tindakan ini tidak bisa dibatalkan.</p>
-                                                    <input type="hidden" name="postID" value="<?=  $post['id_post']; ?>">
+                                                    <input type="hidden" name="pemesananID" value="<?=  $pemesanan['pemesanan_id']; ?>">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>

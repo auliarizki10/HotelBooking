@@ -22,15 +22,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 'type' => 'primary',
                 'message' => 'Selamat Datang Kembali!'
             ];
-            //redirect ke dashboard
+            //redirect ke dashboard sesuai dengan role masing-masing
             if ($row['role'] == "admin") {
                 $_SESSION['username']=$username;
                 $_SESSION['role']="admin";
-                header('Location: dashboard.php');
+                header('Location: ../dashboard.php');
+                exit();
             } elseif ($row['role'] == "user") {
                 $_SESSION['username']=$username;
                 $_SESSION['role']="user";
-                header ('Location: dashboard_user.php');
+                header ('Location: ../dashboard_user.php');
+                exit();
             }
         } else {
             //password salah

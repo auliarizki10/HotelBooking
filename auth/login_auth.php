@@ -28,9 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['role']="admin";
                 header('Location: ../dashboard.php');
                 exit();
-            } elseif ($row['role'] == "user") {
-                $_SESSION['username']=$username;
-                $_SESSION['role']="user";
+            } else {
                 header ('Location: ../dashboard_user.php');
                 exit();
             }

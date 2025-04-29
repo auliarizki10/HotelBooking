@@ -1,5 +1,6 @@
 <?php
-session_start(); //inisialisasi session
+//inisialisasi session
+session_start(); 
 //ambil notifikasi jika ada, kemudian hapus dari sesi
 $notification = $_SESSION['notification'] ?? null;
 if ($notification) {

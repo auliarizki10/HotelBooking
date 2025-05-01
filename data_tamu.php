@@ -10,9 +10,6 @@ include '.includes/toast_notification.php';
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h4>Data Tamu</h4>
-            <!--Tombol untuk menambah data baru--> 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">Tambah Data
-            </button>
         </div>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
@@ -20,7 +17,6 @@ include '.includes/toast_notification.php';
                 <thead>
                     <tr class="text-center">
                         <th width="50px">#</th>
-                        <th>ID Tamu</th>
                         <th>Nama</th>
                         <th>Email</th>
                         <th width="150px">Kontak</th>
@@ -111,29 +107,3 @@ include '.includes/toast_notification.php';
     </div>
 </div>
 <?php include '.includes/footer.php'; ?>
-
-<!-- Modal untuk Tambah Data Tamu-->
-<div class="modal fade" id="addCategory" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tambah Data</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal">
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="proses_kategori.php" method="POST">
-                    <div>
-                        <label for="namaKategori" class="form-label">Nama Tamu</label>
-                    <!-- Input untuk nama tamu baru -->
-                     <input type="text" class="form-control" name="category_name" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>

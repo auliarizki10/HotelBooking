@@ -110,6 +110,73 @@ include '.includes/toast_notification.php';
                 </table>
             </div>
         </div>
+        <!-- Form Tambah Data Kamar -->
+<div class="modal fade" id="addCategory" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Form Pemesanan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form di dalam Modal -->
+        <form method="POST" action="proses_post.php" enctype="multipart/form-data">
+                        <!-- input untuk mengunggah gambar -->
+                            <div class="mb-3">
+                            <label for="formFile" class="form-label">Unggah Gambar</label>
+                            <input class="form-control" type="file" name="image" accept="image/*">
+                          </div>
+
+                          <!-- dropdown untuk memilih tipe kamar -->
+                          <div class="mb-3">
+                            <label for="category_id" class="form-label">Kategori</label>
+                            <select class="form-select" name="category_id" required>
+                                <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
+                                <option value="" selected disabled>Pilih salah satu</option>
+                                <?php
+                                $query = "SELECT * FROM categories"; //query untuk mengambil data kategori
+                                $result = $conn->query($query); //menjalankan query
+                                if ($result->num_rows > 0) { // jika terdapat data kategori
+                                    while ($row = $result->fetch_assoc()) { //iterasi setiap kategori
+                                        echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                           </div>
+
+                        <!-- input untuk judul postingan -->
+                         <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" class="form-control" name="post_title" required>
+                         </div>
+                         
+                           <!-- dropdown untuk mengubah status kamar-->
+                          <div class="mb-3">
+                            <label for="status_id" class="form-label">Kategori</label>
+                            <select class="form-select" name="category_id" required>
+                                <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
+                                <option value="" selected disabled>Pilih salah satu</option>
+                                <?php
+                                $query = "SELECT * FROM categories"; //query untuk mengambil data kategori
+                                $result = $conn->query($query); //menjalankan query
+                                if ($result->num_rows > 0) { // jika terdapat data kategori
+                                    while ($row = $result->fetch_assoc()) { //iterasi setiap kategori
+                                        echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                           </div>
+
+                            <!-- tombol submit -->
+                             <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                    </form>
+      </div>
+    </div>
+  </div>
+</div>
+         <!-- /Form Tambah Data Kamar -->
     </div>
 </div>
 <?php include '.includes/footer.php'; ?>

@@ -21,7 +21,7 @@ include '.includes/toast_notification.php';
                     <tr class="text-center">
                         <th width="50px">#</th>
                         <th>Gambar</th>
-                        <th>Tipe</th> 
+                        <th>Tipe</th>
                         <th>Harga</th>
                         <th width="150px">Status</th>
                     </tr>
@@ -30,14 +30,16 @@ include '.includes/toast_notification.php';
                     <!--Mengambil data kamar dari database--> 
                     <?php
                     $index = 1;
-                    $query = "SELECT * FROM categories";
+                    $query = "SELECT tipe, harga, status FROM kamar";
                     $exec = mysqli_query($conn, $query);
-                    while ($category = mysqli_fetch_assoc($exec)) :
+                    while ($kamar = mysqli_fetch_assoc($exec)) :
                     ?>
                      <tr>
-                        <!-- Menampilkan gambar, tipe, harga, status, dan opsi -->
+                        <!-- Menampilkan nomor, tipe kamar, harga kamar, dan status kamar -->
                         <td><?= $index++; ?></td>
-                        <td><?= $category['category_name']; ?></td>
+                        <td><?= $kamar['kamar_id']; ?></td>
+                        <td>Rp <?= number_format ($kamar['harga'], 0, ',', '.'); ?></td>
+                        <td><?= $kamar['status']; ?></td>
                         <td>
                             <!-- dropdown untuk opsi edit dan delete-->
                             <div class="dropdown">
@@ -45,25 +47,25 @@ include '.includes/toast_notification.php';
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editCategory_<?= $category['category_id']; ?>"><i class="bx bx-edit-alt me-2"></i> Edit </a>
-                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteCategory_<?= $category['category_id']; ?>"><i class="bx bx-trash me-2"></i> Delete </a>
+                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editKamar_<?= $kamar['kamar_id']; ?>"><i class="bx bx-edit-alt me-2"></i> Edit </a>
+                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteKamar_<?= $kamar['kamar_id']; ?>"><i class="bx bx-trash me-2"></i> Delete </a>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     <!-- Modal untuk Hapus Data Kamar-->
-                    <div class="modal fade" id="deleteCategory_<?= $category['category_id']; ?>" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="deleteKamar_<?= $kamar['kamar_id']; ?>" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                   <h5 class="modal-title">Hapus Kategori?</h5>
+                                <div class="modal-header">  
+                                   <h5 class="modal-title">Hapus Data Kamar?</h5>
                                    <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
                                  </div>
                                  <div class="modal-body">
-                                    <form action="proses_kategori.php" method="POST">
+                                    <form action="proses_datakamar.php" method="POST">
                                         <div>
                                             <p>Tindakan ini tidak bisa dibatalkan.</p>
-                                            <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
+                                            <input type="hidden" name="kamarID" value="<?= $kamar['kamar_id']; ?>">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
@@ -75,22 +77,22 @@ include '.includes/toast_notification.php';
                         </div>
                     </div>
                     <!--Modal untuk Update Data Kamar-->
-                    <div id="editCategory_<?= $category['category_id']; ?>" class="modal fade" tabindex="-1" aria-hidden="true">
+                    <div id="editKamar_<?= $kamar['kamar_id']; ?>" class="modal fade" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Update Data Kategori</h5>
+                                    <h5 class="modal-title">Update Data Kamar</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
 
                                 <div class="modal-body">
-                                    <form action="proses_kategori.php" method="POST">
+                                    <form action="proses_datakamar.php" method="POST">
                                     <!-- Input tersembunyi untuk menyimpan ID kamar -->
-                                    <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
+                                    <input type="hidden" name="kamarID" value="<?= $kamar['kamar_id']; ?>">
                                     <div class="form-group">
-                                    <label>Nama Kategori</label>
-                                    <!-- Input untuk nama kamar -->
-                                    <input type="text" value="<?= $category['category_name']; ?>" name="category_name" class="form-control">
+                                    <label>Nama Kategori Kamar</label>
+                                    <!-- Input untuk nama kategori kamar -->
+                                    <input type="text" value="<?= $kamar['tipe']; ?>" name="tipe" class="form-control">
                                     </div>
 
                                     <div class="modal-footer">
@@ -111,4 +113,3 @@ include '.includes/toast_notification.php';
     </div>
 </div>
 <?php include '.includes/footer.php'; ?>
-

@@ -101,7 +101,6 @@ include '.includes/toast_notification.php';
     </div>
 </div>
 
-
 <?php
 include (".includes/footer.php");
 ?>

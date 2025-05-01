@@ -5,12 +5,12 @@ $title = "Dashboard";
 include '.includes/toast_notification.php';
 ?>
 <div class="container-xxl flex-grow-1 container-p-y">
-    <!-- Card untuk menampilkan tabel postingan -->
+    <!-- Card untuk menampilkan tabel pemesanan -->
     <div class="card">
         <!-- Tabel dengan baris yang dapat di hover -->
          <div class="card">
             <!-- Header tabel -->
-             <div class="card-header d-flex justify-content-between align-items-center bg-primary">
+             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4>Semua Pesanan</h4>
             </div>
              <div class="card-body">
@@ -20,9 +20,9 @@ include '.includes/toast_notification.php';
                         <thead>
                             <tr class="text-center">
                                 <th width="50px">#</th>
-                                <th>ID pemesanan</th>
-                                <th>ID tamu</th>
-                                <th>ID kamar</th>
+                                <th>Nama Tamu</th>
+                                <th>Tipe Kamar</th>
+                                <th>Harga Kamar</th>
                                 <th>Tanggal Check-in</th>
                                 <th>Tanggal Check-out</th>
                             </tr>
@@ -31,8 +31,8 @@ include '.includes/toast_notification.php';
                             <!-- menampilkan data dari tabel database -->
                              <?php
                              $index = 1; // variabel untuk nomor urut
-                             // query untuk mengambil data dari tabel posts, users, dan categories
-                             $query = "SELECT pemesanan.*, users.username as user_name, kamar.tipe FROM pemesanan INNER JOIN users ON pemesanan.user_id = users.user_id LEFT JOIN kamar ON pemesanan.kamar_id = kamar.kamar_id WHERE pemesanan.user_id = $userId";
+                             // query untuk mengambil data dari tabel pemesanan, tamu, dan kamar
+                             $query = "SELECT pemesanan.*, tamu.nama as nama_tamu, kamar.tipe, kamar.harga FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN kamar ON pemesanan.kamar_id = kamar.kamar_id WHERE pemesanan.user_id = $userId";
                              //eksekusi query
                              $exec = mysqli_query($conn, $query);
 
@@ -42,9 +42,9 @@ include '.includes/toast_notification.php';
 
                              <tr>
                                 <td><?= $index++; ?></td>
-                                <td><?= $pemesanan['pemesanan_id']; ?></td>
-                                <td><?= $pemesanan['tamu_id']; ?></td>
-                                <td><?= $pemesanan['kamar_id']; ?></td>
+                                <td><?= $pemesanan['nama_tamu']; ?></td>
+                                <td><?= $pemesanan['tipe']; ?></td>
+                                <td>Rp <?= number_format ($pemesanan['harga'], 0, ',', '.' ); ?></td>
                                 <td><?= $pemesanan['check_in']; ?></td>
                                 <td><?= $pemesanan['check_out']; ?></td>
                                 <td>
@@ -57,18 +57,18 @@ include '.includes/toast_notification.php';
                                           <div class="dropdown-menu">
                                             <!-- pilihan edit -->
                                              <a href="edit_pemesanan.php?pemesanan_id=<?= $pemesanan['pemesanan_id']; ?>" class="dropdown-item">
-                                                <i class="bx bx-edit-alt me-2"></i> Edit
+                                                <i class="bx bx-edit-alt me-2"></i> Edit 
                                              </a>
                                              <!-- pilihan delete -->
                                              <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>">
-                                                <i class="bx bx-trash me-2"></i> Delete
+                                                <i class="bx bx-trash me-2"></i> Delete 
                                              </a>
                                           </div>
                                     </div> 
                                 </td>
                              </tr> 
 
-                             <!-- modal untuk hapus konten blog --> 
+                             <!-- modal untuk hapus pemesanan --> 
                              <div class="modal fade" id="deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">

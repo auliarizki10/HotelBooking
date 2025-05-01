@@ -6,11 +6,11 @@ include '.includes/toast_notification.php';
 ?>
 
 <div class="container-xxl flex-grow-1 container-p-y">
-<!--Tabel data kategori-->
+<!--Tabel data kamar-->
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h4>Data Kamar</h4>
-            <!--Tombol untuk menambah kategori baru--> 
+            <!--Tombol untuk menambah kamar baru--> 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">Tambah Data
             </button>
         </div>
@@ -20,14 +20,14 @@ include '.includes/toast_notification.php';
                 <thead>
                     <tr class="text-center">
                         <th width="50px">#</th>
-                        <th>ID Kamar</th>
-                        <th>Tipe</th>
+                        <th>Gambar</th>
+                        <th>Tipe</th> 
                         <th>Harga</th>
                         <th width="150px">Status</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    <!--Mengambil data kategori dari database--> 
+                    <!--Mengambil data kamar dari database--> 
                     <?php
                     $index = 1;
                     $query = "SELECT * FROM categories";
@@ -35,7 +35,7 @@ include '.includes/toast_notification.php';
                     while ($category = mysqli_fetch_assoc($exec)) :
                     ?>
                      <tr>
-                        <!-- Menampilkan nomor, nama kategori,dan opsi -->
+                        <!-- Menampilkan gambar, tipe, harga, status, dan opsi -->
                         <td><?= $index++; ?></td>
                         <td><?= $category['category_name']; ?></td>
                         <td>
@@ -51,7 +51,7 @@ include '.includes/toast_notification.php';
                             </div>
                         </td>
                     </tr>
-                    <!-- Modal untuk Hapus Data kategori-->
+                    <!-- Modal untuk Hapus Data Kamar-->
                     <div class="modal fade" id="deleteCategory_<?= $category['category_id']; ?>" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -74,7 +74,7 @@ include '.includes/toast_notification.php';
                             </div>
                         </div>
                     </div>
-                    <!--Modal untuk Update Data Kategori-->
+                    <!--Modal untuk Update Data Kamar-->
                     <div id="editCategory_<?= $category['category_id']; ?>" class="modal fade" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -85,11 +85,11 @@ include '.includes/toast_notification.php';
 
                                 <div class="modal-body">
                                     <form action="proses_kategori.php" method="POST">
-                                    <!-- Input tersembunyi untuk menyimpan ID kategori -->
+                                    <!-- Input tersembunyi untuk menyimpan ID kamar -->
                                     <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
                                     <div class="form-group">
                                     <label>Nama Kategori</label>
-                                    <!-- Input untuk nama kategori -->
+                                    <!-- Input untuk nama kamar -->
                                     <input type="text" value="<?= $category['category_name']; ?>" name="category_name" class="form-control">
                                     </div>
 
@@ -112,28 +112,3 @@ include '.includes/toast_notification.php';
 </div>
 <?php include '.includes/footer.php'; ?>
 
-<!-- Modal untuk Tambah Data Kategori-->
-<div class="modal fade" id="addCategory" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tambah Data</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal">
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="proses_kategori.php" method="POST">
-                    <div>
-                        <label for="namaKategori" class="form-label">Nama Kategori</label>
-                    <!-- Input untuk nama kategori baru -->
-                     <input type="text" class="form-control" name="category_name" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>

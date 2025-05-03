@@ -25,6 +25,7 @@ include '.includes/toast_notification.php';
                                 <th>Harga Kamar</th>
                                 <th>Tanggal Check-in</th>
                                 <th>Tanggal Check-out</th>
+                                <th width="150px">Pilihan</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">

@@ -19,21 +19,24 @@ include '.includes/toast_notification.php';
                         <th width="50px">#</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th width="150px">Kontak</th>
+                        <th>Kontak</th>
+                        <th width="150px">Pilihan</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     <!--Mengambil data kategori dari database--> 
                     <?php
                     $index = 1;
-                    $query = "SELECT * FROM categories";
+                    $query = "SELECT * FROM tamu";
                     $exec = mysqli_query($conn, $query);
-                    while ($category = mysqli_fetch_assoc($exec)) :
+                    while ($tamu = mysqli_fetch_assoc($exec)) :
                     ?>
                      <tr>
-                        <!-- Menampilkan ID Tamu, nama, email, kontak, dan opsi -->
+                        <!-- Menampilkan nama tamu, email, kontak, serta opsi edit dan delete  -->
                         <td><?= $index++; ?></td>
-                        <td><?= $category['category_name']; ?></td>
+                        <td><?= $tamu['nama']; ?></td>
+                        <td><?= $tamu['email']; ?></td>
+                        <td><?= $tamu['kontak']; ?></td>
                         <td>
                             <!-- dropdown untuk opsi edit dan delete-->
                             <div class="dropdown">
@@ -41,14 +44,14 @@ include '.includes/toast_notification.php';
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editCategory_<?= $category['category_id']; ?>"><i class="bx bx-edit-alt me-2"></i> Edit </a>
-                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteCategory_<?= $category['category_id']; ?>"><i class="bx bx-trash me-2"></i> Delete </a>
+                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editTamu_<?= $tamu['tamu_id']; ?>"><i class="bx bx-edit-alt me-2"></i> Edit </a>
+                                    <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteTamu_<?= $tamu['tamu_id']; ?>"><i class="bx bx-trash me-2"></i> Delete </a>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     <!-- Modal untuk Hapus Data Tamu-->
-                    <div class="modal fade" id="deleteCategory_<?= $category['category_id']; ?>" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="deleteTamu_<?= $tamu['tamu_id']; ?>" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -56,10 +59,10 @@ include '.includes/toast_notification.php';
                                    <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
                                  </div>
                                  <div class="modal-body">
-                                    <form action="proses_kategori.php" method="POST">
+                                    <form action="proses_pemesanan.php" method="POST">
                                         <div>
                                             <p>Tindakan ini tidak bisa dibatalkan.</p>
-                                            <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
+                                            <input type="hidden" name="tamuID" value="<?= $tamu['tamu_id']; ?>">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
@@ -71,7 +74,7 @@ include '.includes/toast_notification.php';
                         </div>
                     </div>
                     <!--Modal untuk Update Data Tamu-->
-                    <div id="editCategory_<?= $category['category_id']; ?>" class="modal fade" tabindex="-1" aria-hidden="true">
+                    <div id="editTamu_<?= $tamu['tamu_id']; ?>" class="modal fade" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -80,12 +83,12 @@ include '.includes/toast_notification.php';
                                 </div>
 
                                 <div class="modal-body">
-                                    <form action="proses_kategori.php" method="POST">
+                                    <form action="proses_pemesanan.php" method="POST">
                                     <!-- Input tersembunyi untuk menyimpan ID Tamu -->
-                                    <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
+                                    <input type="hidden" name="tamuID" value="<?= $tamu['tamu_id']; ?>">
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" name="post_title" placeholder="Reasya Chavilette" required>
+                                        <input type="text" class="form-control" name="nama" placeholder="Reasya Chavilette" required>
                                     </div>
 
                                     <div class="mb-3">

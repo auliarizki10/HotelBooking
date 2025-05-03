@@ -83,10 +83,19 @@ include '.includes/toast_notification.php';
                                     <form action="proses_kategori.php" method="POST">
                                     <!-- Input tersembunyi untuk menyimpan ID Tamu -->
                                     <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
-                                    <div class="form-group">
-                                    <label>Nama Kategori</label>
-                                    <!-- Input untuk nama tamu -->
-                                    <input type="text" value="<?= $category['category_name']; ?>" name="category_name" class="form-control">
+                                    <div class="mb-3">
+                                        <label for="nama" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" name="post_title" placeholder="Reasya Chavilette" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="kontak" class="form-label">Kontak</label>
+                                        <input type="text" class="form-control" id="basic-default-company" placeholder="08xxxxxxxxxx">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" id="basic-default-email" class="form-control" placeholder="@example.com">
                                     </div>
 
                                     <div class="modal-footer">

@@ -37,19 +37,19 @@
 
        <ul class="menu-sub">
         <li class="menu-item">
-          <a href="kategori_kamar.php" class="menu-link">
+          <a href="data_kamar.php" class="menu-link">
             <div data-i18n="Basic Inputs">Kamar</div>
           </a>
         </li>
         <li class="menu-item">
-          <a href="post_kategori.php" class="menu-link">
+          <a href="kategori.php" class="menu-link">
             <div data-i18n="Input groups">Kategori</div>
           </a>
         </li>
       </ul>
     </li>
 
-    
+
   </ul>
 </aside>
 <!-- / Menu -->

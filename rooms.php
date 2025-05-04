@@ -2,23 +2,69 @@
 include (".includes/header_user.php");
 $title = "Dashboard";
 ?>
+<div class="col-12">
+  <div id="swiper-gallery">
+    <!--  -->
+    <div class="swiper gallery-top">
+      <div class="swiper-wrapper">
+      <div class="swiper-slide">
+          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 1" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 2" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 3" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 4" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 5" class="img-fluid" />
+        </div>
+      </div>
 
-<!-- BG awal -->
-<div class="position-fixed top-0 start-0 w-100 h-100">
-    <img src="assets/img/kamar/bg.jpg" alt="" class="w-100 h-75 object-fit-cover">
+      <!-- -->
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+    </div>
+
+    <!--  -->
+    <div class="swiper gallery-thumbs mt-2">
+      <div class="swiper-wrapper">
+      <div class="swiper-slide">
+          <img src="assets/img/kamar/double.jpg" alt="Thumb 1" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/double.jpg" alt="Thumb 2" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/double.jpg" alt="Thumb 3" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/double.jpg" alt="Thumb 4" class="img-fluid" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/img/kamar/double.jpg" alt="Thumb 5" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 <!-- /BG awal -->
 
 <!-- judul di tengah BG-->
-<h1 class="position-absolute top-50 start-50 translate-middle text-white z-3 fw-bold fs-1">ROOMS</h1>
+<h1 class="position-absolute top-50 start-50 translate-middle text-white z-3 fw-bold fs-1"> OUR ROOMS</h1>
 <!-- /judul di tengah BG-->
 
-<div class="card p-0 mb-6" style="margin-top: 380px;">
+<div class="card p-0 mb-6" style="margin-top: 420px;">
 <ul class="list-group mb-4">
               <li class="list-group-item p-6">
                 <div class="d-flex gap-4 flex-sm-row flex-column align-items-center">
                   <div class="flex-shrink-0 d-flex align-items-center">
-                    <img src="assets/img/kamar/pp.jpg" alt="deluxe room" class="w-100">
+                    <!-- gambar kategori -->
+                    <img src="assets/img/kamar/pp.jpg" alt="deluxe room" class="w-100"> 
                   </div>
                   <div class="flex-grow-1">
                     <div class="row text-center text-sm-start">

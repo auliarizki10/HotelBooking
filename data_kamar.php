@@ -31,7 +31,7 @@ include '.includes/toast_notification.php';
                     <!--Mengambil data kamar dari database--> 
                     <?php
                     $index = 1;
-                    $query = "SELECT * FROM kamar";
+                    $query = "SELECT kamar.*, categories.category_name FROM kamar LEFT JOIN categories ON kamar.category_id = categories.category_id";
                     $exec = mysqli_query($conn, $query);
                     while ($kamar = mysqli_fetch_assoc($exec)) :
                     ?>
@@ -39,7 +39,7 @@ include '.includes/toast_notification.php';
                         <!-- Menampilkan nomor, gambar kamar, tipe kamar, harga kamar, status kamar, serta opsi edit dan delete -->
                         <td><?= $index++; ?></td>
                         <td><img src="<?= $kamar['image_path']; ?>" width="100px"></td>
-                        <td><?= $kamar['tipe']; ?></td>
+                        <td><?= $kamar['category_name']; ?></td>
                         <td>Rp <?= number_format ($kamar['harga'], 0, ',', '.'); ?></td>
                         <td><?= $kamar['status']; ?></td>
                         <td>
@@ -95,50 +95,52 @@ include '.includes/toast_notification.php';
                                     <!-- input untuk mengunggah gambar -->
                                         <div class="mb-3">
                                             <label for="formFile" class="form-label">Unggah Gambar</label>
-                                            <input class="form-control" type="file" name="image" accept="image/*">
+                                            <input class="form-control" type="file" id="formFile" name="image_path" accept="image/*">
+                                            <?php if (!empty($kamar['image_path'])): ?>
+                                                <!-- menampilkan gambar yang sudah diunggah -->
+                                                <div class="mt-2">
+                                                    <img src="<?= $kamar['image_path']; ?>" alt="Current Image" class="img-thumbnail" style="max-width: 200px;">
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
 
                                     <!-- dropdown untuk memilih tipe kamar -->
-                                        <div class="mb-3">
-                                            <label for="category_id" class="form-label">Tipe Kamar</label>
-                                            <select class="form-select" name="category_id" required>
-                                            <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
-                                            <option value="" selected disabled>Pilih salah satu</option>
+                                    <div class="mb-3">
+                                        <label for="kamar_id" class="form-label">Tipe Kamar</label>
+                                        <select class="form-select" id="category_id" name="category_name" required>
+                                            <option value="" selected disabled>Pilih Salah Satu</option>
                                             <?php
-                                            $query = "SELECT * FROM categories"; //query untuk mengambil data kategori
-                                            $result = $conn->query($query); //menjalankan query
-                                            if ($result->num_rows > 0) { // jika terdapat data kategori
-                                                while ($row = $result->fetch_assoc()) { //iterasi setiap kategori
-                                                echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
-                                              }
+                                            //mengambil data kategori dari database
+                                            $queryCategories = "SELECT * FROM categories";
+                                            $resultCategories = $conn->query($queryCategories);
+                                            //menambahkan opsi ke dropdown
+                                            if ($resultCategories->num_rows > 0) {
+                                                while ($row = $resultCategories->fetch_assoc()) {
+                                                    //menandai kategori yang sudah dipilih
+                                                    $selected = ($row["category_id"] == $kamar['category_id']) ? "selected" : "";
+                                                    echo "<option value='" . $row["category_id"] . "' $selected>" . $row["category_name"] . "</option>";
+                                                }
                                             }
                                             ?>
+                                        </select>
+                                    </div>
+
+                                    <!-- input untuk judul postingan -->
+                                        <div class="mb-3">
+                                            <label for="harga" class="form-label">Harga</label>
+                                            <input type="number" class="form-control" name="harga" value="<?= $kamar['harga']; ?>" required>
+                                        </div>
+                         
+                                    <!-- dropdown untuk mengubah status kamar-->
+                                        <div class="mb-3">
+                                            <label for="kamar_id" class="form-label">Status</label>
+                                             <select class="form-select" name="status" required>
+                                                <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
+                                                <option value="" selected disabled>Pilih salah satu</option>
+                                                <option value="tersedia" <?=$kamar['status'] == 'tersedia' ? 'selected' : ''  ?>>Tersedia</option>
+                                                <option value="sudah dipesan" <?=$kamar['status'] == 'sudah dipesan' ? 'selected' : ''  ?>>Sudah Dipesan</option>
                                             </select>
                                         </div>
-
-                        <!-- input untuk judul postingan -->
-                         <div class="mb-3">
-                            <label for="harga" class="form-label">Harga</label>
-                            <input type="number" class="form-control" name="post_title" required>
-                         </div>
-                         
-                           <!-- dropdown untuk mengubah status kamar-->
-                          <div class="mb-3">
-                            <label for="status_id" class="form-label">Status</label>
-                            <select class="form-select" name="category_id" required>
-                                <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
-                                <option value="" selected disabled>Pilih salah satu</option>
-                                <?php
-                                $query = "SELECT * FROM categories"; //query untuk mengambil data kategori
-                                $result = $conn->query($query); //menjalankan query
-                                if ($result->num_rows > 0) { // jika terdapat data kategori
-                                    while ($row = $result->fetch_assoc()) { //iterasi setiap kategori
-                                        echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                           </div>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -170,7 +172,7 @@ include '.includes/toast_notification.php';
             <!-- input untuk mengunggah gambar -->
             <div class="mb-3">
                 <label for="formFile" class="form-label">Unggah Gambar</label>
-                <input class="form-control" type="file" name="image" accept="image/*">
+                <input class="form-control" type="file" id="formFile" name="image_path" accept="image/*">
             </div>
 
             <!-- dropdown untuk memilih tipe kamar -->

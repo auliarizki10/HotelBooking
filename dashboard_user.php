@@ -4,92 +4,111 @@ $title = "Dashboard";
 ?>
 
 <!-- video hotel -->
-<div class="position-fixed top-0 start-0 w-100 video-wrapper">
-    <video src="assets/vid/Vhotel.mp4" autoplay muted loop class="object-fit-cover video-bg"></video>
-</div>
-<!-- /video hotel -->
-
-<!-- judul di tengah video-->
-<h1 class="position-absolute top-50 start-50 translate-middle text-white z-3 fw-bold fs-1">HOOKING</h1>
-<p class="position-absolute top-50 start-50 translate-middle text-white z-1 fw-bold fs-5" style="padding-top: 6%;">hotel booking terkeren semuka bumi dengan harga gokil berkualitas</p> 
-<!-- /judul di tengah video-->
-
-<!-- ringkasan hotel -->
-<div class="card p-0 mb-6" style="margin-top: 380px;">
-  <div class="card-body d-flex flex-column align-items-center justify-content-center text-center py-6 mt-4">
-    <span class="card-title mb-4 h1">
-      <span class="text-primary text-nowrap">WELCOME TO HOOKING</span>
-    </span>
-    <h6 class="mb-0">
-    Hooking Hotel terletak langsung di tepi pantai, menawarkan kemegahan dan kenyamanan dalam satu paket eksklusif. Dengan arsitektur modern dan ruang-ruang yang luas, hotel ini menghadirkan suasana mewah yang berbeda dari resor alam pada umumnya. Bangunannya yang kokoh dan berkelas dirancang untuk kamu yang mencari pengalaman menginap premium dengan fasilitas lengkap, pemandangan laut terbuka, dan layanan bintang lima. Cocok untuk liburan bergaya, acara spesial, atau sekadar menikmati kemewahan tanpa kompromi.
-    </h6>
+<div class="position-fixed top-0 start-0 w-100 h-100">
+  <div class="row m-0 h-100">
+    <div class="col-12 p-0 position-relative video-wrapper">
+      <video src="assets/vid/vdhotel.mp4" autoplay muted loop class="video-bg"></video>
+      <div class="position-absolute top-50 start-50 translate-middle w-100 ps-4">
+        <h1 class="text-primary" style="font-family: 'spicy rice', sans-serif;
+    text-shadow: 2.5px 2.5px 2.5px rgb(35, 29, 36);">HOOKING</h1>
+        <h5 class="text-white" style="text-shadow: 2.5px 2.5px 2.5px rgb(35, 29, 36);">Ini adalah deskripsi singkat atau penjelasan yang diletakkan di dalam 
+          <br>video agar terlihat profesional dan mudah dipahami.</h5>
+        <div class="d-flex d-md-block align-items-center mb-2 gap-2 justify-content-center justify-content-sm-start">
+  <div class="read-only-ratings raty mb-2" data-read-only="true" data-score="5" data-number="5" title="good" style="pointer-events: none;">
+    <!-- 5 Bintang Penuh dengan Warna Kuning -->
+    <img alt="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' %3E%3Cpath fill='%23FFD700' d='M21.947 9.179a1 1 0 0 0-.868-.676l-5.701-.453l-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107l-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4l4.536-4.082c.297-.268.406-.686.278-1.065'/%3E%3C/svg%3E">
+    <img alt="2" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' %3E%3Cpath fill='%23FFD700' d='M21.947 9.179a1 1 0 0 0-.868-.676l-5.701-.453l-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107l-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4l4.536-4.082c.297-.268.406-.686.278-1.065'/%3E%3C/svg%3E">
+    <img alt="3" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' %3E%3Cpath fill='%23FFD700' d='M21.947 9.179a1 1 0 0 0-.868-.676l-5.701-.453l-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107l-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4l4.536-4.082c.297-.268.406-.686.278-1.065'/%3E%3C/svg%3E">
+    <img alt="4" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' %3E%3Cpath fill='%23FFD700' d='M21.947 9.179a1 1 0 0 0-.868-.676l-5.701-.453l-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107l-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4l4.536-4.082c.297-.268.406-.686.278-1.065'/%3E%3C/svg%3E">
+    <img alt="5" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' %3E%3Cpath fill='%23FFD700' d='M21.947 9.179a1 1 0 0 0-.868-.676l-5.701-.453l-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107l-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4l4.536-4.082c.297-.268.406-.686.278-1.065'/%3E%3C/svg%3E">
   </div>
-  <!-- /ringkasan hotel -->
 
-  <!-- yang ada orang main komputer -->
-<div class="container-xxl flex-grow-1 container-p-y">
-<section class="pricing-free-trial bg-label-primary rounded-pill">
-  <div class="container">
-    <div class="position-relative">
-      <div class="d-flex justify-content-between flex-column-reverse flex-lg-row align-items-center pt-12 pb-10">
-        <div class="text-center text-lg-start">
-          <h4 class="text-primary mb-2">Mencari Hotel dengan kamar dan kualitas yang top? HOOKING IN HERE!!</h4>
-          <p class="text-body mb-6 mb-md-11">Rasakan kenyamanan maksimal dengan berbagai fasilitas unggulan yang kami sediakan.</p>
-          <!-- <a href="" class="btn btn-primary">Start 14-day free trial</a> -->
-        </div>
-        <!-- image -->
-        <div class="text-center">
-          <img src="https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo/assets/img/illustrations/lady-with-laptop-light.png" class="img-fluid me-lg-5 pe-lg-1 mb-3 mb-lg-0" alt="Api Key Image" width="202" data-app-light-img="illustrations/lady-with-laptop-light.png" data-app-dark-img="illustrations/lady-with-laptop-dark.png">
-        </div>
       </div>
     </div>
   </div>
-  </section>
-  <!-- /yang ada orang main komputer -->
+</div>
+</div>
+<!-- /video hotel -->
 
-  <!-- 3 card tentang -->
-  <div class="container mt-5">
-  <div class="row">
-  <span class="card-title mb-4 h1 text-center">
-      <span class="text-primary text-nowrap">STAY EXPERIENCE</span>
+<!-- ringkasan hotel -->
+<div class="card p-0 mb-6 rounded" style="margin-top: 380px;">
+  <div class="card-body d-flex flex-column align-items-center justify-content-center text-center py-6 mt-4">
+  <span class="card-title mb-1 h1">
+      <span class="text-primary text-nowrap" style="font-family: 'spicy rice', sans-serif; text-shadow: 2.5px 2.5px 2.5px rgb(36, 29, 29);">WELCOME TO HOOKING</span>
     </span>
-  <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title mb-3">ROOMS</h5>
-                      <h6 class="card-subtitle mb-3">Kamar Nyaman dan Pastinya Memuaskan</h6>
-                      <img class="img-fluid d-flex mx-auto my-6 rounded" src="assets/img/kamar/kamar.jpeg" alt="Card image cap">
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-                </div>
+    <div class="card-body">
+      <p class="demo-inline-spacing mt-0">
+        <button class="btn btn-primary me-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          About Hooking
+        </button>
+      </p>
+      <!-- Konten tersembunyi -->
+      <div class="collapse" id="collapseExample">
+        <div class="d-grid d-sm-flex p-4 border">
+          <img src="assets/img/hotel/hotel.jpg" alt="collapse-image" height="125" class="me-6 mb-sm-0 mb-2">
+          <h6 class="mb-0" style="font-family: 'Poppins', sans-serif;">
+            Hooking Hotel terletak langsung di tepi pantai, menawarkan kemegahan dan kenyamanan dalam satu paket eksklusif. Dengan arsitektur modern dan ruang-ruang yang luas, hotel ini menghadirkan suasana mewah yang berbeda dari resor alam pada umumnya. Bangunannya yang kokoh dan berkelas dirancang untuk kamu yang mencari pengalaman menginap tanpa kompromi, lengkap dengan pemandangan laut terbuka dan layanan terbaik.
+          </h6>
+        </div>
+      </div>
+    </div>
 
-    <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title mb-3">FACILITIES</h5>
-                      <h6 class="card-subtitle mb-3">Fasilitas Lengkap untuk Memenuhi Kebutuhan Anda</h6>
-                      <img class="img-fluid d-flex mx-auto my-6 rounded" src="assets/img/hotel/hotel.jpg" alt="Card image cap">
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-                </div>
+    <div class="col-12">
+  <h2 class="text-muted mt-4">FASILITAS</h2>
+  <div class="swiper swiper-coverflow swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress" id="swiper-3d-coverflow-effect">
+    <div class="swiper-wrapper" id="swiper-wrapper-7b5b256718fa5355" aria-live="polite" style="cursor: grab; transition-duration: 0ms; transform: translate3d(-82px, 0px, 0px); transition-delay: 0ms;">
+      
+      <div class="swiper-slide swiper-slide-visible swiper-slide-prev" style="transition-duration: 0ms; transform: translate3d(0px, 0px, -100px) rotateX(0deg) rotateY(50deg) scale(1); z-index: 0;" role="group" aria-label="1 / 5">
+        <img src="assets/img/hotel/hotel.jpg" alt="Slide 1" class="img-fluid" style="width: 200%; height: auto;">
+        <div class="swiper-slide-shadow-left swiper-slide-shadow-coverflow" style="opacity: 1; transition-duration: 0ms;"></div>
+        <div class="swiper-slide-shadow-right swiper-slide-shadow-coverflow" style="opacity: 0; transition-duration: 0ms;"></div>
+      </div>
 
-    <div class="col-md-6 col-lg-4">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title mb-3"> TOP SERVICE</h5>
-                      <h6 class="card-subtitle mb-3">Layanan Terbaik untuk Pengalaman Menginap yang Menarik</h6>
-                      <img class="img-fluid d-flex mx-auto my-6 rounded" src="assets/img/hotel/service.jpg" alt="Card image cap">
-                      <p class="card-text"></p>
-                    </div>
-                  </div>
-                </div>
+      <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1); z-index: 1;" role="group" aria-label="2 / 5">
+        <img src="assets/img/hotel/service.jpg" alt="Slide 2" class="img-fluid">
+        <div class="swiper-slide-shadow-left swiper-slide-shadow-coverflow" style="opacity: 0; transition-duration: 0ms;"></div>
+        <div class="swiper-slide-shadow-right swiper-slide-shadow-coverflow" style="opacity: 0; transition-duration: 0ms;"></div>
+      </div>
+
+      <div class="swiper-slide swiper-slide-visible swiper-slide-next" style="transition-duration: 0ms; transform: translate3d(0px, 0px, -100px) rotateX(0deg) rotateY(-50deg) scale(1); z-index: 0;" role="group" aria-label="3 / 5">
+        <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 3" class="img-fluid">
+        <div class="swiper-slide-shadow-left swiper-slide-shadow-coverflow" style="opacity: 0; transition-duration: 0ms;"></div>
+        <div class="swiper-slide-shadow-right swiper-slide-shadow-coverflow" style="opacity: 1; transition-duration: 0ms;"></div>
+      </div>
+
+      <div class="swiper-slide" style="transition-duration: 0ms; transform: translate3d(0px, 0px, -200px) rotateX(0deg) rotateY(-100deg) scale(1); z-index: -1;" role="group" aria-label="4 / 5">
+        <img src="assets/img/illustrations/girl-doing-yoga-light.png" alt="Slide 4" class="img-fluid">
+        <div class="swiper-slide-shadow-left swiper-slide-shadow-coverflow" style="opacity: 0; transition-duration: 0ms;"></div>
+        <div class="swiper-slide-shadow-right swiper-slide-shadow-coverflow" style="opacity: 2; transition-duration: 0ms;"></div>
+      </div>
+
+      <div class="swiper-slide" style="transition-duration: 0ms; transform: translate3d(0px, 0px, -300px) rotateX(0deg) rotateY(-150deg) scale(1); z-index: -2;" role="group" aria-label="5 / 5">
+        <img src="assets/img/kamar/single.jpg" alt="Slide 5" class="img-fluid">
+        <div class="swiper-slide-shadow-left swiper-slide-shadow-coverflow" style="opacity: 0; transition-duration: 0ms;"></div>
+        <div class="swiper-slide-shadow-right swiper-slide-shadow-coverflow" style="opacity: 3; transition-duration: 0ms;"></div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal">
+      <span class="swiper-pagination-bullet"></span>
+      <span class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-current="true"></span>
+      <span class="swiper-pagination-bullet"></span>
+      <span class="swiper-pagination-bullet"></span>
+      <span class="swiper-pagination-bullet"></span>
+    </div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
   </div>
 </div>
-<!-- /3 card tentang -->
+  </div>
+</div>
+
+<div class="card p-0 mb-6">
+  <div class="card-body d-flex flex-column align-items-center justify-content-center text-center py-6 mt-4 bg-navbar-theme">
 
 </div>
+</div>
+
+</>
 </div>
 
 <?php

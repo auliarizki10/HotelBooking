@@ -3,7 +3,7 @@ html, body {
     padding: 0;
 }
 
-/* mengatur penempatan video */
+/* mengatur penempatan video pada file dashboard user*/
 .video-wrapper { 
     height: 80%; 
     z-index: -1; 
@@ -12,6 +12,63 @@ html, body {
 .video-bg {
     width: 100%;
     height: 110%;
-    object-fit: cover; /
+    object-fit: cover;   
 }
-/* /mengatur penempatan video */
+
+.gallery-top {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .gallery-top .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .gallery-thumbs {
+    height: 100px;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+  
+  .gallery-thumbs .swiper-slide {
+    height: 100%;
+    opacity: 0.4;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 2px solid #007bff;
+  }
+  
+  .gallery-thumbs .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ini buat atur tinggi swiper halaman dashboard user */
+  #swiper-3d-coverflow-effect {
+    max-width: 400px;  /* Perkecil ukuran slider */
+    margin: auto;
+  }
+
+  #swiper-3d-coverflow-effect .swiper-slide {
+    width: 250px !important;  /* Ukuran masing-masing slide */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #swiper-3d-coverflow-effect .swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+

@@ -91,11 +91,54 @@ include '.includes/toast_notification.php';
                                     <form action="proses_datakamar.php" method="POST">
                                     <!-- Input tersembunyi untuk menyimpan ID kamar -->
                                     <input type="hidden" name="kamarID" value="<?= $kamar['kamar_id']; ?>">
-                                    <div class="form-group">
-                                    <label>Nama Kategori Kamar</label>
-                                    <!-- Input untuk nama kategori kamar -->
-                                    <input type="text" value="<?= $kamar['tipe']; ?>" name="tipe" class="form-control">
-                                    </div>
+
+                                    <!-- input untuk mengunggah gambar -->
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Unggah Gambar</label>
+                                            <input class="form-control" type="file" name="image" accept="image/*">
+                                        </div>
+
+                                    <!-- dropdown untuk memilih tipe kamar -->
+                                        <div class="mb-3">
+                                            <label for="category_id" class="form-label">Tipe Kamar</label>
+                                            <select class="form-select" name="category_id" required>
+                                            <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
+                                            <option value="" selected disabled>Pilih salah satu</option>
+                                            <?php
+                                            $query = "SELECT * FROM categories"; //query untuk mengambil data kategori
+                                            $result = $conn->query($query); //menjalankan query
+                                            if ($result->num_rows > 0) { // jika terdapat data kategori
+                                                while ($row = $result->fetch_assoc()) { //iterasi setiap kategori
+                                                echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
+                                              }
+                                            }
+                                            ?>
+                                            </select>
+                                        </div>
+
+                        <!-- input untuk judul postingan -->
+                         <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" class="form-control" name="post_title" required>
+                         </div>
+                         
+                           <!-- dropdown untuk mengubah status kamar-->
+                          <div class="mb-3">
+                            <label for="status_id" class="form-label">Status</label>
+                            <select class="form-select" name="category_id" required>
+                                <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
+                                <option value="" selected disabled>Pilih salah satu</option>
+                                <?php
+                                $query = "SELECT * FROM categories"; //query untuk mengambil data kategori
+                                $result = $conn->query($query); //menjalankan query
+                                if ($result->num_rows > 0) { // jika terdapat data kategori
+                                    while ($row = $result->fetch_assoc()) { //iterasi setiap kategori
+                                        echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                           </div>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

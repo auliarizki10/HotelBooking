@@ -3,7 +3,7 @@
 navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-  <nav class="navbar navbar-example navbar-expand-lg ">
+  <nav class="navbar navbar-example navbar-expand-lg">
                   <div class="container-fluid p-0">
                   <nav class="navbar bg-body-tertiary">
                   <div class="container-fluid">
@@ -11,15 +11,7 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
                     <img src="assets/img/favicon/favicon.ico" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">HOOKING</a>
                   </div>
                   </nav>
-                    <button
-                      class="navbar-toggler"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#navbar-ex-4"
-                    >
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-
+                    
                     <div class="collapse navbar-collapse" id="navbar-ex-4">
                       <div class="navbar-nav me-auto fs-5">
                         <a class="nav-item nav-link active" href="dashboard_user.php">Home</a>
@@ -30,6 +22,15 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
                   </div>
                 </nav>
     <ul class="navbar-nav flex-row align-items-center ms-auto">
+
+    <!-- ppp -->
+    <button type="button" class="btn rounded-pill btn-primary d-flex justify-content-center align-items-center p-0" style="width: 40px; height: 40px;">
+  <span class="icon-base bx bx-bell icon-sm"></span>
+</button>
+
+
+    <!-- /ppp -->
+
       <!-- User -->
       <li class="nav-item navbar-dropdown dropdown-user dropdown">
         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">

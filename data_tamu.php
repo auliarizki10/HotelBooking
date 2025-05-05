@@ -85,20 +85,20 @@ include '.includes/toast_notification.php';
                                 <div class="modal-body">
                                     <form action="proses_pemesanan.php" method="POST">
                                     <!-- Input tersembunyi untuk menyimpan ID Tamu -->
-                                    <input type="hidden" name="tamuID" value="<?= $tamu['tamu_id']; ?>">
+                                    <input type="hidden" name="tamu_id" value="<?= $tamu['tamu_id']; ?>">
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" name="nama" placeholder="Reasya Chavilette" required>
+                                        <input type="text" class="form-control" name="nama" value="<?= $tamu['nama']; ?>">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="kontak" class="form-label">Kontak</label>
-                                        <input type="text" class="form-control" id="basic-default-company" placeholder="08xxxxxxxxxx">
+                                        <input type="text" class="form-control" name="kontak" value="<?= $tamu['kontak']; ?>">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" id="basic-default-email" class="form-control" placeholder="@example.com">
+                                        <input type="text" id="basic-default-email" name="email" class="form-control" value="<?= $tamu['email']; ?>">
                                     </div>
 
                                     <div class="modal-footer">

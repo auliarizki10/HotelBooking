@@ -23,13 +23,13 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
                 </nav>
     <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-    <!-- ppp -->
-    <button type="button" class="btn rounded-pill btn-primary d-flex justify-content-center align-items-center p-0" style="width: 40px; height: 40px;">
-  <span class="icon-base bx bx-bell icon-sm"></span>
+    <!-- notif -->
+    <a href="rincian_pesanan.php">
+    <button type="button" class=" nav-item nav-link btn rounded-pill btn-primary d-flex justify-content-center align-items-center p-0" style="width: 40px; height: 40px;"> 
+  <span class="icon-base bx bx-bell icon-sm"></span> 
 </button>
-
-
-    <!-- /ppp -->
+</a>
+<!-- /notif -->
 
       <!-- User -->
       <li class="nav-item navbar-dropdown dropdown-user dropdown">

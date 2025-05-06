@@ -43,32 +43,38 @@ html, body {
   
   .gallery-thumbs .swiper-slide-thumb-active {
     opacity: 1;
-    border: 2px solid #007bff;
+    border: 2px solid #ffa200;
   }
   
   .gallery-thumbs .swiper-slide img {
     width: 100%;
+    max-width: 1000px;
     height: 100%;
     object-fit: cover;
   }
 
-  /* ini buat atur tinggi swiper halaman dashboard user */
-  #swiper-3d-coverflow-effect {
-    max-width: 400px;  /* Perkecil ukuran slider */
-    margin: auto;
+  /* hover header text */
+  .accordion-button:not(.collapsed) {
+    background-color: #f1cd19; /* kuning tema web */
+    color: #212529; /* teks tetap terbaca */
   }
+  
+  /* button menyala pada nav mini di file dashboard_user.php */
+  .button_menyala {
+  position: relative;
+  border: none;
+  background: none;
+}
 
-  #swiper-3d-coverflow-effect .swiper-slide {
-    width: 250px !important;  /* Ukuran masing-masing slide */
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #swiper-3d-coverflow-effect .swiper-slide img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-
+.button_menyala.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  color: #ff4d4f !important;
+  background-color: #ff4d4f;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}

@@ -38,7 +38,7 @@ include '.includes/toast_notification.php';
                      <tr>
                         <!-- Menampilkan nomor, gambar kamar, tipe kamar, harga kamar, status kamar, serta opsi edit dan delete -->
                         <td><?= $index++; ?></td>
-                        <td><img src="<?= $kamar['image_path']; ?>" width="100px"></td>
+                        <td><img src="<?= $kamar['image_path']; ?>" width="200px"></td>
                         <td><?= $kamar['category_name']; ?></td>
                         <td>Rp <?= number_format ($kamar['harga'], 0, ',', '.'); ?></td>
                         <td><?= $kamar['status']; ?></td>
@@ -67,7 +67,7 @@ include '.includes/toast_notification.php';
                                     <form action="proses_datakamar.php" method="POST">
                                         <div>
                                             <p>Tindakan ini tidak bisa dibatalkan.</p>
-                                            <input type="hidden" name="kamarID" value="<?= $kamar['kamar_id']; ?>">
+                                            <input type="hidden" name="kamar_id" value="<?= $kamar['kamar_id']; ?>">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
@@ -88,14 +88,14 @@ include '.includes/toast_notification.php';
                                 </div>
 
                                 <div class="modal-body">
-                                    <form action="proses_datakamar.php" method="POST">
+                                    <form action="proses_datakamar.php" method="POST" enctype="multipart/form-data">
                                     <!-- Input tersembunyi untuk menyimpan ID kamar -->
-                                    <input type="hidden" name="kamarID" value="<?= $kamar['kamar_id']; ?>">
+                                    <input type="hidden" name="kamar_id" value="<?= $kamar['kamar_id']; ?>">
 
                                     <!-- input untuk mengunggah gambar -->
                                         <div class="mb-3">
                                             <label for="formFile" class="form-label">Unggah Gambar</label>
-                                            <input class="form-control" type="file" id="formFile" name="image_path" accept="image/*">
+                                            <input class="form-control" type="file" id="formFile" name="image_path" accept="image/*" value="<?= $kamar['image_path']; ?>">
                                             <?php if (!empty($kamar['image_path'])): ?>
                                                 <!-- menampilkan gambar yang sudah diunggah -->
                                                 <div class="mt-2">
@@ -106,8 +106,8 @@ include '.includes/toast_notification.php';
 
                                     <!-- dropdown untuk memilih tipe kamar -->
                                     <div class="mb-3">
-                                        <label for="kamar_id" class="form-label">Tipe Kamar</label>
-                                        <select class="form-select" id="category_id" name="category_name" required>
+                                        <label for="tipe" class="form-label">Tipe Kamar</label>
+                                        <select class="form-select" id="category_id" name="category_id" required>
                                             <option value="" selected disabled>Pilih Salah Satu</option>
                                             <?php
                                             //mengambil data kategori dari database
@@ -172,13 +172,13 @@ include '.includes/toast_notification.php';
             <!-- input untuk mengunggah gambar -->
             <div class="mb-3">
                 <label for="formFile" class="form-label">Unggah Gambar</label>
-                <input class="form-control" type="file" id="formFile" name="image_path" accept="image/*">
+                <input class="form-control" type="file" id="formFile" name="image" accept="image/*">
             </div>
 
             <!-- dropdown untuk memilih tipe kamar -->
             <div class="mb-3">
-                <label for="kamar_id" class="form-label">Tipe</label>
-                <select class="form-select" name="kamar_id" required>
+                <label for="category_id" class="form-label">Tipe</label>
+                <select class="form-select" name="category_id" required>
                     <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
                     <option value="" selected disabled>Pilih salah satu</option>
                     <?php

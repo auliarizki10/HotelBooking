@@ -8,16 +8,16 @@ $title = "Dashboard";
     <div class="swiper gallery-top">
       <div class="swiper-wrapper">
       <div class="swiper-slide">
-          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 1" class="img-fluid" />
+          <img src="assets/img/kamar/single2.jpeg" alt="Slide 1" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 2" class="img-fluid" />
+          <img src="assets/img/kamar/double.jpeg" alt="Slide 2" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 3" class="img-fluid" />
+          <img src="assets/img/kamar/deluxe.jpeg" alt="Slide 3" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 4" class="img-fluid" />
+          <img src="assets/img/kamar/single.jpeg" alt="Slide 4" class="img-fluid" />
         </div>
         <div class="swiper-slide">
           <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 5" class="img-fluid" />
@@ -33,16 +33,16 @@ $title = "Dashboard";
     <div class="swiper gallery-thumbs mt-2">
       <div class="swiper-wrapper">
       <div class="swiper-slide">
-          <img src="assets/img/kamar/double.jpg" alt="Thumb 1" class="img-fluid" />
+          <img src="assets/img/kamar/single2.jpeg" alt="Thumb 1" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/double.jpg" alt="Thumb 2" class="img-fluid" />
+          <img src="assets/img/kamar/double.jpeg" alt="Thumb 2" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/double.jpg" alt="Thumb 3" class="img-fluid" />
+          <img src="assets/img/kamar/deluxe.jpeg" alt="Thumb 3" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/double.jpg" alt="Thumb 4" class="img-fluid" />
+          <img src="assets/img/kamar/single.jpeg" alt="Thumb 4" class="img-fluid" />
         </div>
         <div class="swiper-slide">
           <img src="assets/img/kamar/double.jpg" alt="Thumb 5" class="img-fluid" />
@@ -108,12 +108,15 @@ $title = "Dashboard";
           <div class="mb-3 text-end">
           <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
           </div>
-
         </form>
       </div>
     </div>
   </div>
 </div>
 <!-- Modal End -->
-                      </ul>
-                    </div>
+ </ul>
+</div>
+
+<?php
+include (".includes/footer_user.php");
+?>

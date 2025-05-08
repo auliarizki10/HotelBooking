@@ -62,11 +62,11 @@ include '.includes/toast_notification.php';
                                     <form action="proses_pemesanan.php" method="POST">
                                         <div>
                                             <p>Tindakan ini tidak bisa dibatalkan.</p>
-                                            <input type="hidden" name="tamuID" value="<?= $tamu['tamu_id']; ?>">
+                                            <input type="hidden" name="tamu_id" value="<?= $tamu['tamu_id']; ?>">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-                                            <button type="submit" name="delete" class="btn btn-primary">Hapus</button>
+                                            <button type="submit" name="delete_tamu" class="btn btn-primary">Hapus</button>
                                         </div>
                                     </form>
                                  </div>
@@ -103,7 +103,7 @@ include '.includes/toast_notification.php';
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        <button type="submit" name="update" class="btn btn-warning">Update</button>
+                                        <button type="submit" name="update_tamu" class="btn btn-warning">Update</button>
                                     </div>
                                     </form>
                                 </div>

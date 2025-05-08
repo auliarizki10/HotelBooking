@@ -138,7 +138,7 @@ include '.includes/toast_notification.php';
                                                 <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
                                                 <option value="" selected disabled>Pilih salah satu</option>
                                                 <option value="tersedia" <?=$kamar['status'] == 'tersedia' ? 'selected' : ''  ?>>Tersedia</option>
-                                                <option value="sudah dipesan" <?=$kamar['status'] == 'sudah dipesan' ? 'selected' : ''  ?>>Sudah Dipesan</option>
+                                                <option value="tidak tersedia" <?=$kamar['status'] == 'tidak tersedia' ? 'selected' : ''  ?>>Tidak Tersedia</option>
                                             </select>
                                         </div>
 

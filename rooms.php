@@ -72,6 +72,7 @@ include '.includes/toast_notification.php';
         <div>
           <h4 class="mb-1"><?= $kamar['category_name']; ?></h4>
           <p>Rp <?= number_format($kamar['harga'], 0, ',', '.'); ?></p>
+          <p>Status : <?=$kamar['status']; ?> </p>
         </div>
         <div class="ms-auto">
           <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#isidata">BOOK NOW</button>

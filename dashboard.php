@@ -57,7 +57,7 @@ include '.includes/toast_notification.php';
                                          <!-- menu dropdown -->
                                           <div class="dropdown-menu">
                                             <!-- pilihan edit -->
-                                             <a href="edit_pemesanan.php?pemesanan_id=<?= $pemesanan['pemesanan_id']; ?>" class="dropdown-item">
+                                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editPemesanan_<?= $pemesanan['pemesanan_id']; ?>">
                                                 <i class="bx bx-edit-alt me-2"></i> Edit 
                                              </a>
                                              <!-- pilihan delete -->
@@ -91,6 +91,51 @@ include '.includes/toast_notification.php';
                                         </div>
                                     </div>
                                 </div>
+                             </div>
+
+                             <div class="modal fade" id="editPemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Edit Data Pemesanan</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                         <!-- Form di dalam Modal -->
+                                        <form method="POST" action="proses_post.php" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label for="nama" class="form-label">Nama Tamu</label>
+                                            <input type="text" class="form-control" name="post_title" placeholder="Reasya Chavilette" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="category_id" class="form-label">Tipe Kamar</label>
+                                            <select class="form-select" name="category_id" required>
+                                                <option value="" selected disabled>Pilih salah satu</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="harga" class="form-label">Harga</label>
+                                            <input type="number" class="form-control" name="harga" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="checkin">Tanggal Check-In</label>
+                                            <input type="date" id="checkin" class="form-control" name="checkin">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="checkout">Tanggal Check-Out</label>
+                                            <input type="date" id="checkout" class="form-control" name="checkout">
+                                        </div>
+
+                                        <div class="mb-3 text-end">
+                                        <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                  </form>
+                                </div>
+                               </div>
+                              </div>
                              </div>
                              <?php endwhile; ?>
                         </tbody>

@@ -56,11 +56,7 @@ include '.includes/toast_notification.php';
 
 <!-- /BG awal -->
 
-<!-- judul di tengah BG-->
-<h1 class="position-absolute top-50 start-50 translate-middle text-white z-3 fw-bold fs-1"> OUR ROOMS</h1>
-<!-- /judul di tengah BG-->
-
-<div class="card p-0 mb-6" style="margin-top: 420px;">
+<div class="card p-0 mb-6" style="margin-top: 150px;">
 <ul class="list-group mb-4">
 <?php 
   $query = "SELECT kamar.*, categories.category_name FROM kamar LEFT JOIN categories ON kamar.category_id = categories.category_id";

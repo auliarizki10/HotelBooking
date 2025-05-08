@@ -5,6 +5,7 @@ include("config.php");
 
 //memulai sesi untuk menyimpan notifikasi
 session_start();
+$userId = $_SESSION['user_id'];
 
 //proses pemesanan kamar
 if (isset($_POST['simpan'])) {
@@ -13,6 +14,7 @@ if (isset($_POST['simpan'])) {
     $email = $_POST['email'];
     $kontak = $_POST['kontak'];
     $catID = $_POST['category_id'];
+    $harga = $_POST['harga'];
     $checkin = $_POST['check_in'];
     $checkout = $_POST['check_out'];
 
@@ -23,14 +25,15 @@ if (isset($_POST['simpan'])) {
     if ($execTamu) {
         $tamuID = mysqli_insert_id($conn);
 
-        $queryPemesanan = "INSERT INTO pemesanan (tamu_id, category_id, check_in, check_out) VALUES ('$tamuID', '$catID', '$checkin', '$checkout')";
+        // query untuk menambahkan data tamu ke dalam tabel pemesanan
+        $queryPemesanan = "INSERT INTO pemesanan (tamu_id, category_id, harga, check_in, check_out, user_id) VALUES ('$tamuID','$catID', $harga, '$checkin', '$checkout', '$userId')";
         $execPemesanan = mysqli_query($conn, $queryPemesanan);
 
         //menyimpan notifikasi berhasil atau gagal ke dalam session
         if ($execPemesanan) {
             $_SESSION['notification'] = [
                 'type' => 'primary', 
-                'message' => 'Pemesanan berhasil ditambahkan' 
+                'message' => 'Pemesanan berhasil ditambahkan! Silahkan cek pada tombol notfikasi di atas.' 
             ];
         } else {
             $_SESSION['notification'] = [
@@ -47,7 +50,7 @@ if (isset($_POST['simpan'])) {
 
 
 //proses penghapusan data tamu
-if (isset($_POST['delete'])) {
+if (isset($_POST['delete_tamu'])) {
     //mengambil ID tamu dari parameter URL
     $tamuID = $_POST['tamu_id'];
 
@@ -73,7 +76,7 @@ if (isset($_POST['delete'])) {
 }
 
 //proses pembaruan data tamu
-if (isset($_POST['update'])) {
+if (isset($_POST['update_tamu'])) {
     //mengambil data dari form pembaruan
     $tamuID = $_POST['tamu_id'];
     $nama = $_POST['nama'];
@@ -81,8 +84,8 @@ if (isset($_POST['update'])) {
     $kontak = $_POST['kontak'];
 
     //query untuk memperbarui data tamu berdasarkan ID
-    $query = "UPDATE tamu SET nama ='$nama', email = '$email', kontak ='$kontak' WHERE tamu_id='$tamuID'";
-    $exec = mysqli_query($conn, $query);
+    $queryTamu = "UPDATE tamu SET nama ='$nama', email = '$email', kontak ='$kontak' WHERE tamu_id='$tamuID'";
+    $exec = mysqli_query($conn, $queryTamu);
 
     //menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
@@ -99,5 +102,63 @@ if (isset($_POST['update'])) {
 
     //redirect kembali ke halaman data_tamu.php
     header('Location: data_tamu.php');
+    exit();
+}
+
+
+//proses penghapusan data pemesanan
+if (isset($_POST['delete_pemesanan'])) {
+    //mengambil ID pemesanan dari parameter URL
+    $pemesananID = $_POST['pemesanan_id'];
+
+    //query untuk menghapus data pemesanan berdasarkan ID
+    $exec = mysqli_query($conn, "DELETE FROM pemesanan WHERE pemesanan_id='$pemesananID'");
+
+    // menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
+    if ($exec) {
+        $_SESSION['notification'] = [
+            'type' => 'primary',
+            'message' => 'Data pemesanan berhasil dihapus!'
+        ];
+    } else {
+        $_SESSION['notification'] = [
+            'type' => 'danger',
+            'message' => 'Gagal menghapus data pemesanan.' . mysqli_error($conn)
+        ];
+    }
+
+    //redirect kembali ke halaman dashboard.php
+    header('Location: dashboard.php');
+    exit();
+}
+
+//proses pembaruan data pemesanan
+if (isset($_POST['update_pemesanan'])) {
+    //mengambil data dari form pembaruan
+    $catID = $_POST['category_id'];
+    $harga = $_POST['harga'];
+    $checkin = $_POST['check_in'];
+    $checkout = $_POST['check_out'];
+    $pemesananID = $_POST['pemesanan_id'];
+
+    //query untuk memperbarui data tamu berdasarkan ID
+    $queryPemesanan = "UPDATE pemesanan SET category_id = '$catID', harga ='$harga', check_in = '$checkin', check_out = '$checkout' WHERE pemesanan_id='$pemesananID'";
+    $exec = mysqli_query($conn, $queryPemesanan);
+
+    //menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
+    if ($exec) {
+        $_SESSION['notification'] = [
+            'type' => 'primary',
+            'message' => 'Data tamu berhasil diperbarui!'
+        ];
+    } else {
+        $_SESSION['notification'] = [
+            'type' => 'danger',
+            'message' => 'Gagal memperbarui data tamu: ' . mysqli_error($conn)
+        ];
+    }
+
+    //redirect kembali ke halaman dashboard.php
+    header('Location: dashboard.php');
     exit();
 }

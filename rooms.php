@@ -96,12 +96,12 @@ include '.includes/toast_notification.php';
 
           <div class="mb-3">
             <label for="kontak" class="form-label">Kontak</label>
-            <input type="text" name="kontak" class="form-control" id="basic-default-company" placeholder="08xxxxxxxxxx">
+            <input type="text" name="kontak" class="form-control" id="basic-default-company" placeholder="08xxxxxxxxxx" required>
            </div>
 
            <div class="mb-3">
            <label for="email" class="form-label">Email</label>
-              <input type="text" name="email" id="basic-default-email" class="form-control" placeholder="@example.com">
+              <input type="text" name="email" id="basic-default-email" class="form-control" placeholder="@example.com" required>
             </div>
 
             <div class="mb-3">
@@ -131,12 +131,12 @@ include '.includes/toast_notification.php';
 
             <div class="mb-3">
             <label class="form-label" for="checkin">Tanggal Check-In</label>
-            <input type="date" id="checkin" class="form-control" name="check_in">
+            <input type="date" id="checkin" class="form-control" name="check_in" required>
           </div>
 
           <div class="mb-3">
             <label class="form-label" for="checkout">Tanggal Check-Out</label>
-            <input type="date" id="checkout" class="form-control" name="check_out">
+            <input type="date" id="checkout" class="form-control" name="check_out" required>
           </div>
 
           <div class="mb-3 text-end">

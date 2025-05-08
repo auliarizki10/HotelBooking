@@ -37,10 +37,10 @@
         <h6 class="fw-bold text-warning">Kontak Kami</h6>
         <p class="text-muted mb-1">+62 812-3456-7890</p>
         <p class="text-muted mb-2">hooking@gmail.com</p>
-        <div class="d-flex gap-2">
-          <a href="#"><i class="bx bxl-facebook text-dark fs-4"></i></a>
-          <a href="#"><i class="bx bxl-instagram text-dark fs-4"></i></a>
-          <a href="#"><i class="bx bxl-twitter text-dark fs-4"></i></a>
+        <div class="d-flex gap-3 justify-content-center">
+          <a href="#"><i class="bx bxl-facebook text-dark fs-3"></i></a>
+          <a href="#"><i class="bx bxl-instagram text-dark fs-3"></i></a>
+          <a href="#"><i class="bx bxl-twitter text-dark fs-3"></i></a>
         </div>
       </div>
 

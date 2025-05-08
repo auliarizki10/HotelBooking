@@ -29,6 +29,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 header('Location: ../dashboard.php');
                 exit();
             } else {
+                $_SESSION['username']=$username;
+                $_SESSION['role']="user";
                 header ('Location: ../dashboard_user.php');
                 exit();
             }

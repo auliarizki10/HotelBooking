@@ -2,6 +2,7 @@
 include (".includes/header_user.php");
 //menyertakan file untuk menampilkan notifikasi (jika ada)
 include '.includes/toast_notification.php';
+$userId = $_SESSION['user_id'];
 ?>
 <div class="container-xxl flex-grow-1 container-p-y">
     <!-- Card untuk menampilkan tabel pemesanan -->
@@ -10,7 +11,7 @@ include '.includes/toast_notification.php';
          <div class="card">
             <!-- Header tabel -->
              <div class="card-header d-flex justify-content-between align-items-center">
-                <h4>Rincian Pesanan</h4>
+                <h4>Riwayat Pesanan</h4>
             </div>
              <div class="card-body">
                  <!-- Tabel responsif -->
@@ -21,7 +22,7 @@ include '.includes/toast_notification.php';
                                 <th width="50px">#</th>
                                 <th>Nama</th>
                                 <th>Tipe Kamar</th>
-                                <th>Harga Kamar</th>
+                                <th>Harga Kamar / Malam</th>
                                 <th>Tanggal Check-in</th>
                                 <th>Tanggal Check-out</th>
                             </tr>
@@ -31,7 +32,7 @@ include '.includes/toast_notification.php';
                              <?php
                              $index = 1; // variabel untuk nomor urut
                              // query untuk mengambil data dari tabel pemesanan, tamu, dan kamar
-                             $query = "SELECT pemesanan.*, tamu.nama as nama_tamu, kamar.tipe, kamar.harga FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN kamar ON pemesanan.kamar_id = kamar.kamar_id WHERE pemesanan.user_id = $userId";
+                             $query = "SELECT pemesanan.*, tamu.nama, categories.category_name FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN categories ON pemesanan.category_id = categories.category_id WHERE pemesanan.user_id = $userId";
                              //eksekusi query
                              $exec = mysqli_query($conn, $query);
 
@@ -41,8 +42,8 @@ include '.includes/toast_notification.php';
 
                              <tr>
                                 <td><?= $index++; ?></td>
-                                <td><?= $pemesanan['nama_tamu']; ?></td>
-                                <td><?= $pemesanan['tipe']; ?></td>
+                                <td><?= $pemesanan['nama']; ?></td>
+                                <td><?= $pemesanan['category_name']; ?></td>
                                 <td>Rp <?= number_format ($pemesanan['harga'], 0, ',', '.' ); ?></td>
                                 <td><?= $pemesanan['check_in']; ?></td>
                                 <td><?= $pemesanan['check_out']; ?></td>

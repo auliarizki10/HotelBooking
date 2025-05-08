@@ -6,7 +6,7 @@ include (".includes/header_user.php");
 <div class="col-md pt-4 px-4">
       <h1 class="fw-medium">Customer Service</h1>
 
-      <div class="bs-stepper wizard-numbered mt-2">
+      <div class="bs-stepper wizard-numbered mt-2 border-bottom">
         <div class="bs-stepper-header">
           <div class="step active" data-target="#account-details">
             <button type="button" class="step-trigger" data-bs-toggle="step" aria-selected="true">
@@ -17,7 +17,7 @@ include (".includes/header_user.php");
               </span>
             </button>
           </div>
-          <div class="line">
+          <div class="">
             <i class="icon-base bx bx-chevron-right icon-md"></i>
           </div>
           <div class="step" data-target="#personal-info">
@@ -29,7 +29,7 @@ include (".includes/header_user.php");
               </span>
             </button>
           </div>
-          <div class="line">
+          <div class="">
             <i class="icon-base bx bx-chevron-right icon-md"></i>
           </div>
           <div class="step" data-target="#social-links">

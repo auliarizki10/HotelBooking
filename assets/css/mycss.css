@@ -11,7 +11,7 @@ html, body {
 
 .video-bg {
     width: 100%;
-    height: 110%;
+    height: 50%;
     object-fit: cover;   
 }
 
@@ -53,28 +53,37 @@ html, body {
     object-fit: cover;
   }
 
-  /* hover header text */
+  /* hover header text pertanyaan umum*/
   .accordion-button:not(.collapsed) {
     background-color: #f1cd19; /* kuning tema web */
     color: #212529; /* teks tetap terbaca */
   }
-  
-  /* button menyala pada nav mini di file dashboard_user.php */
-  .button_menyala {
-  position: relative;
-  border: none;
-  background: none;
+
+/* stepper css di contact user */
+.bs-stepper .step .bs-stepper-circle {
+  background-color: #f44336;
+  color: #fff;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
-.button_menyala.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 20%;
-  width: 60%;
-  height: 2px;
-  color: #ff4d4f !important;
-  background-color: #ff4d4f;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+.bs-stepper .step.active .bs-stepper-title {
+  color: #f44336;
+}
+
+.bs-stepper .step .step-trigger {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.bs-stepper .step .bs-stepper-label {
+  margin-left: 0.75rem;
+  text-align: left;
 }

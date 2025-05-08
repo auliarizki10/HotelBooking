@@ -13,7 +13,7 @@ include (".includes/header_user.php");
               <span class="bs-stepper-circle"><i class='bx bx-message-rounded-dots'></i></span>
               <span class="bs-stepper-label">
                 <span class="bs-stepper-title">Kirimi kami pesan</span><br>
-                <span class="bs-stepper-subtitle">Add personal info</span>
+                <span class="bs-stepper-subtitle">Untuk informasi lebih lanjut</span>
               </span>
             </button>
           </div>
@@ -25,7 +25,7 @@ include (".includes/header_user.php");
               <span class="bs-stepper-circle"><i class='bx bx-phone'></i></span>
               <span class="bs-stepper-label">
                 <span class="bs-stepper-title">Hubungi kami</span><br>
-                <span class="bs-stepper-subtitle">Add personal info</span>
+                <span class="bs-stepper-subtitle">Tim kami siap membantu Anda.</span>
               </span>
             </button>
           </div>
@@ -37,7 +37,7 @@ include (".includes/header_user.php");
               <span class="bs-stepper-circle"><i class='bx bx-building-house'></i></span>
               <span class="bs-stepper-label">
                 <span class="bs-stepper-title">Hubungi akomodasi</span><br>
-                <span class="bs-stepper-subtitle">Add personal info</span>
+                <span class="bs-stepper-subtitle">Detail fasilitas dan layanan.</span>
               </span>
             </button>
           </div>
@@ -48,7 +48,7 @@ include (".includes/header_user.php");
               <div class="row g-6">
               <div class="p-2">
         <h6 class="mb-0" style="font-family: 'Poppins', sans-serif; line-height: 1.6;">
-        Hubungi tim kami tentang pemesanan Anda, dan kami akan membalas sesegera mungkin.
+        Butuh bantuan terkait reservasi, fasilitas, atau pertanyaan lainnya? Kirimkan pesan Anda melalui email kami <span class="text-warning">hooking@gmail.com</span>, dan tim kami akan segera merespons untuk memastikan pengalaman menginap Anda berjalan lancar."
         </h6>
       </div>
               </div>
@@ -59,7 +59,7 @@ include (".includes/header_user.php");
                 <div class="col-sm-6">
                 <div class="p-2">
         <h6 class="mb-0" style="font-family: 'Poppins', sans-serif; line-height: 1.6;">
-        Untuk hal yang mendesak, Anda bisa menelepon kami 24 jam ke nomor lokal atau internasional.
+        Untuk kebutuhan mendesak terkait pemesanan atau layanan selama menginap, Anda dapat menghubungi kami kapan saja di <span class="text-warning">+62 812-3456-7890</span>. Tim kami siap membantu 24 jam.
         </h6>
       </div>
               </div>
@@ -71,7 +71,7 @@ include (".includes/header_user.php");
               <div class="col-sm-6">
               <div class="p-2">
         <h6 class="mb-0" style="font-family: 'Poppins', sans-serif; line-height: 1.6;">
-        Untuk detail terkait akomodasi, Anda bisa langsung menghubungi mereka
+        Hubungi kami untuk detail lengkap mengenai akomodasi dan layanan yang tersedia.
         </h6>
       </div>
       </div>

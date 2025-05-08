@@ -22,7 +22,7 @@ include '.includes/toast_notification.php';
                                 <th width="50px">#</th>
                                 <th>Nama Tamu</th>
                                 <th>Tipe Kamar</th>
-                                <th>Harga Kamar</th>
+                                <th>Harga Kamar / Malam</th>
                                 <th>Tanggal Check-in</th>
                                 <th>Tanggal Check-out</th>
                                 <th width="150px">Pilihan</th>
@@ -33,7 +33,7 @@ include '.includes/toast_notification.php';
                              <?php
                              $index = 1; // variabel untuk nomor urut
                              // query untuk mengambil data dari tabel pemesanan, tamu, dan kamar
-                             $query = "SELECT pemesanan.*, tamu.nama as nama_tamu, kamar.tipe, kamar.harga FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN kamar ON pemesanan.kamar_id = kamar.kamar_id WHERE pemesanan.user_id = $userId";
+                             $query = "SELECT pemesanan.*, tamu.nama, categories.category_name FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN categories ON pemesanan.category_id = categories.category_id WHERE pemesanan.user_id = $userId";
                              //eksekusi query
                              $exec = mysqli_query($conn, $query);
 
@@ -43,8 +43,8 @@ include '.includes/toast_notification.php';
 
                              <tr>
                                 <td><?= $index++; ?></td>
-                                <td><?= $pemesanan['nama_tamu']; ?></td>
-                                <td><?= $pemesanan['tipe']; ?></td>
+                                <td><?= $pemesanan['nama']; ?></td>
+                                <td><?= $pemesanan['category_name']; ?></td>
                                 <td>Rp <?= number_format ($pemesanan['harga'], 0, ',', '.' ); ?></td>
                                 <td><?= $pemesanan['check_in']; ?></td>
                                 <td><?= $pemesanan['check_out']; ?></td>
@@ -81,18 +81,19 @@ include '.includes/toast_notification.php';
                                             <form action="proses_pemesanan.php" method="POST">
                                                 <div>
                                                     <p>Tindakan ini tidak bisa dibatalkan.</p>
-                                                    <input type="hidden" name="pemesananID" value="<?=  $pemesanan['pemesanan_id']; ?>">
+                                                    <input type="hidden" name="pemesanan_id" value="<?=  $pemesanan['pemesanan_id']; ?>">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" name="delete" class="btn btn-primary">Hapus</button>
+                                                    <button type="submit" name="delete_pemesanan" class="btn btn-primary">Hapus</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                              </div>
-
+                            
+                             <!-- modal untuk edit pemesanan  -->
                              <div class="modal fade" id="editPemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
@@ -101,36 +102,51 @@ include '.includes/toast_notification.php';
                                         </div>
                                         <div class="modal-body">
                                          <!-- Form di dalam Modal -->
-                                        <form method="POST" action="proses_post.php" enctype="multipart/form-data">
+                                        <form method="POST" action="proses_pemesanan.php">
+                                        <!-- Input tersembunyi untuk menyimpan ID pemesanan -->
+                                        <input type="hidden" name="pemesanan_id" value="<?= $pemesanan['pemesanan_id']; ?>">
                                         <div class="mb-3">
                                             <label for="nama" class="form-label">Nama Tamu</label>
-                                            <input type="text" class="form-control" name="post_title" placeholder="Reasya Chavilette" required>
+                                            <input type="text" class="form-control" name="nama" value="<?= $pemesanan['nama'];?>">
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="category_id" class="form-label">Tipe Kamar</label>
-                                            <select class="form-select" name="category_id" required>
+                                            <select class="form-select" name="category_id">
                                                 <option value="" selected disabled>Pilih salah satu</option>
+                                                <?php
+                                                    //mengambil data kategori dari database
+                                                    $queryCategories = "SELECT * FROM categories";
+                                                    $resultCategories = $conn->query($queryCategories);
+                                                    //menambahkan opsi ke dropdown
+                                                    if ($resultCategories->num_rows > 0) {
+                                                        while ($row = $resultCategories->fetch_assoc()) {
+                                                            //menandai kategori yang sudah dipilih
+                                                            $selected = ($row["category_id"] == $pemesanan['category_id']) ? "selected" : "";
+                                                            echo "<option value='" . $row["category_id"] . "' $selected>" . $row["category_name"] . "</option>";
+                                                        }
+                                                    }
+                                                ?>
                                             </select>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="harga" class="form-label">Harga</label>
-                                            <input type="number" class="form-control" name="harga" required>
+                                            <input type="number" class="form-control" name="harga" value="<?= $pemesanan['harga']; ?>">
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="checkin">Tanggal Check-In</label>
-                                            <input type="date" id="checkin" class="form-control" name="checkin">
+                                            <input type="date" id="checkin" class="form-control" name="check_in" value="<?= $pemesanan['check_in']; ?>" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="checkout">Tanggal Check-Out</label>
-                                            <input type="date" id="checkout" class="form-control" name="checkout">
+                                            <input type="date" id="checkout" class="form-control" name="check_out" value="<?= $pemesanan['check_out']; ?>" required>
                                         </div>
 
                                         <div class="mb-3 text-end">
-                                        <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" name="update_pemesanan" class="btn btn-primary">Simpan</button>
                                     </div>
                                   </form>
                                 </div>

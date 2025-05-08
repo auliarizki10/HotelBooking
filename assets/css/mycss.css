@@ -11,7 +11,7 @@ html, body {
 
 .video-bg {
     width: 100%;
-    height: 50%;
+    height: 100%;
     object-fit: cover;   
 }
 
@@ -61,7 +61,7 @@ html, body {
 
 /* stepper css di contact user */
 .bs-stepper .step .bs-stepper-circle {
-  background-color: #f44336;
+  background-color: #f1cd19;
   color: #fff;
   border-radius: 8px;
   width: 36px;
@@ -73,7 +73,7 @@ html, body {
 }
 
 .bs-stepper .step.active .bs-stepper-title {
-  color: #f44336;
+  color: #f1cd19;
 }
 
 .bs-stepper .step .step-trigger {

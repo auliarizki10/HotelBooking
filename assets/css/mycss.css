@@ -3,6 +3,22 @@ html, body {
     padding: 0;
 }
 
+.nav-link {
+  position: relative;
+}
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #FFD700; /* Ganti dengan warna yang diinginkan */
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  width: 100%;
+}
+
 /* mengatur penempatan video pada file dashboard user*/
 .video-wrapper { 
     height: 80%; 

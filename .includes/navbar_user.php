@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container-fluid">
     <!-- Logo -->
-    <a class="navbar-brand fw-bold d-flex align-items-center fs-3" href="#">
+    <a class="navbar-brand fw-bold d-flex align-items-center fs-3 text-warning" href="#" style="font-family: 'Oswald', sans-serif;">
       <img src="assets/img/favicon/hicon.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
       HOOKING
     </a>
@@ -15,9 +15,9 @@
     <!-- Navbar menu -->
     <div class="collapse navbar-collapse" id="navbarMain">
       <div class="navbar-nav me-auto fs-5">
-        <a class="nav-item nav-link active" href="dashboard_user.php">Home</a>
-        <a class="nav-item nav-link" href="rooms.php">Rooms</a>
-        <a class="nav-item nav-link" href="contact.php">Contact</a>
+        <a class="nav-item nav-link active text-warning" href="dashboard_user.php">Home</a>
+        <a class="nav-item nav-link text-warning" href="rooms.php">Rooms</a>
+        <a class="nav-item nav-link text-warning" href="contact.php">Contact</a>
       </div>
 
       <!-- navbar kanan -->

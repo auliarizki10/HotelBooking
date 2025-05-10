@@ -114,7 +114,7 @@ $title = "Dashboard";
   <i class="bx bxs-heart text-danger me-1"></i>
   <i class="bx bxs-heart text-danger me-1"></i>
 </div>
-        <div class="d-flexalign-items-center mb-2">
+        <div class="d-flex align-items-center mb-2">
         <i class="bi bi-water fs-4 me-2"></i>
         <p class="mb-0">Air Bersih</p>
         </div>

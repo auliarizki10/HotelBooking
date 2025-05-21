@@ -33,7 +33,8 @@ include '.includes/toast_notification.php';
                              <?php
                              $index = 1; // variabel untuk nomor urut
                              // query untuk mengambil data dari tabel pemesanan, tamu, dan kamar
-                             $query = "SELECT pemesanan.*, tamu.nama, categories.category_name FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN categories ON pemesanan.category_id = categories.category_id WHERE pemesanan.user_id = $userId";
+                             $query = "SELECT pemesanan.*, tamu.nama, categories.category_name FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN categories ON pemesanan.category_id = categories.category_id";
+                             
                              //eksekusi query
                              $exec = mysqli_query($conn, $query);
 

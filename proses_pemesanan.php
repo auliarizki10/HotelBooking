@@ -149,7 +149,7 @@ if (isset($_POST['update_pemesanan'])) {
     if ($exec) {
         $_SESSION['notification'] = [
             'type' => 'primary',
-            'message' => 'Data tamu berhasil diperbarui!'
+            'message' => 'Data pemesanan berhasil diperbarui!'
         ];
     } else {
         $_SESSION['notification'] = [

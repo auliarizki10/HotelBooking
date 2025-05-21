@@ -6,7 +6,8 @@ include '.includes/toast_notification.php';
 ?>
 <div class="col-12">
   <div id="swiper-gallery">
-    <!--  -->
+
+    <!-- bagian swiper gambar utama (gambar besar) -->
     <div class="swiper gallery-top">
       <div class="swiper-wrapper">
       <div class="swiper-slide">
@@ -22,16 +23,19 @@ include '.includes/toast_notification.php';
           <img src="assets/img/kamar/single.jpeg" alt="Slide 4" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/DELUXE.jpg" alt="Slide 5" class="img-fluid" />
+          <img src="assets/img/kamar/dbl.jpeg" alt="Slide 5" class="img-fluid" />
         </div>
       </div>
 
-      <!-- -->
+      <!-- tombol kanan kiri -->
       <div class="swiper-button-next swiper-button-white"></div>
       <div class="swiper-button-prev swiper-button-white"></div>
-    </div>
 
-    <!--  -->
+      <!-- /tombol kanan kiri pada gambar-->
+    </div>
+    <!-- /bagian swiper gambar utama (gambar besar) -->
+
+    <!-- bagian swiper gambar kecil -->
     <div class="swiper gallery-thumbs mt-2">
       <div class="swiper-wrapper">
       <div class="swiper-slide">
@@ -47,14 +51,13 @@ include '.includes/toast_notification.php';
           <img src="assets/img/kamar/single.jpeg" alt="Thumb 4" class="img-fluid" />
         </div>
         <div class="swiper-slide">
-          <img src="assets/img/kamar/double.jpg" alt="Thumb 5" class="img-fluid" />
+          <img src="assets/img/kamar/dbl.jpeg" alt="Thumb 5" class="img-fluid" />
         </div>
       </div>
     </div>
+    <!-- /bagian swiper gambar kecil -->
   </div>
 </div>
-
-<!-- /BG awal -->
 
 <div class="card p-0 mb-6" style="margin-top: 150px;">
 <ul class="list-group mb-4">

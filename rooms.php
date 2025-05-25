@@ -61,19 +61,26 @@ include '.includes/toast_notification.php';
 
 <div class="card p-0 mb-6" style="margin-top: 150px;">
 <ul class="list-group mb-4">
+  <!-- menampilkan data dari tabel database -->
 <?php 
+// query untuk mengambil data dari tabel kamar untuk menampilkan data kamar pada halaman rooms
   $query = "SELECT kamar.*, categories.category_name FROM kamar LEFT JOIN categories ON kamar.category_id = categories.category_id";
-  $exec = mysqli_query($conn, $query);
-  while ($kamar = mysqli_fetch_assoc($exec)) :
+  $exec = mysqli_query($conn, $query);//eksekusi query
+  while ($kamar = mysqli_fetch_assoc($exec)) : //perulangan untuk menampilkan setiap baris query
   ?>
   <li class="list-group-item d-flex align-items-center">
+        <!-- menampilkan gambar kamar dengan atribut 'src' diambil dari field 'image_path' -->
         <img src="<?= $kamar['image_path']; ?>" alt="<?= $kamar['category_name']; ?>" style="width: 230px" class="me-3 rounded">
         <div>
+          <!-- menampilkan tipe kamar -->
           <h4 class="mb-1"><?= $kamar['category_name']; ?></h4>
+          <!-- menampilkan harga kamar -->
           <p>Rp <?= number_format($kamar['harga'], 0, ',', '.'); ?></p>
+          <!-- menampilkan status kamar -->
           <p>Status : <?=$kamar['status']; ?> </p>
         </div>
         <div class="ms-auto">
+          <!-- tombol untuk memesan kamar -->
           <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#isidata">BOOK NOW</button>
         </div>
       </li>
@@ -90,22 +97,26 @@ include '.includes/toast_notification.php';
         <!-- Form di dalam Modal -->
         <form method="POST" action="proses_pemesanan.php" enctype="multipart/form-data">
           <div class="mb-3">
+            <!-- input nama tamu -->
             <label for="nama" class="form-label">Nama</label>
             <input type="text" class="form-control" name="nama" placeholder="Reasya Chavilette" required>
           </div>
 
           <div class="mb-3">
+            <!-- input kontak -->
             <label for="kontak" class="form-label">Kontak</label>
             <input type="text" name="kontak" class="form-control" id="basic-default-company" placeholder="08xxxxxxxxxx" required>
            </div>
 
            <div class="mb-3">
-           <label for="email" class="form-label">Email</label>
+              <!-- input email -->
+              <label for="email" class="form-label">Email</label>
               <input type="text" name="email" id="basic-default-email" class="form-control" placeholder="@example.com" required>
             </div>
 
             <div class="mb-3">
-            <label for="category_id" class="form-label">Kategori</label>
+              <!-- dropwdown tipe kamar -->
+            <label for="category_id" class="form-label">Tipe Kamar</label>
             <select class="form-select" name="category_id" required>
               <option value="" selected disabled>Pilih salah satu</option>
                 <?php
@@ -125,21 +136,25 @@ include '.includes/toast_notification.php';
           </div>
           
           <div class="mb-3">
-                <label for="harga" class="form-label">Harga</label>
+            <!-- input harga kam-->
+                <label for="harga" class="form-label">Harga Kamar Per Malam</label>
                 <input type="number" class="form-control" name="harga" required>
           </div>
 
             <div class="mb-3">
+              <!-- input tanggal check-in -->
             <label class="form-label" for="checkin">Tanggal Check-In</label>
             <input type="date" id="checkin" class="form-control" name="check_in" required>
           </div>
 
           <div class="mb-3">
+            <!-- input tanggal check-out -->
             <label class="form-label" for="checkout">Tanggal Check-Out</label>
             <input type="date" id="checkout" class="form-control" name="check_out" required>
           </div>
 
           <div class="mb-3 text-end">
+            <!-- tombol simpan -->
           <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
           </div>
         </form>

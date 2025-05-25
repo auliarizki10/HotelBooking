@@ -27,9 +27,9 @@ include '.includes/toast_notification.php';
                     <!--Mengambil data kategori dari database--> 
                     <?php
                     $index = 1;
-                    $query = "SELECT * FROM tamu";
-                    $exec = mysqli_query($conn, $query);
-                    while ($tamu = mysqli_fetch_assoc($exec)) :
+                    $query = "SELECT * FROM tamu"; //query untuk mengambil data tamu
+                    $exec = mysqli_query($conn, $query); //menjalankan query
+                    while ($tamu = mysqli_fetch_assoc($exec)) : //iterasi setiap baris hasil query
                     ?>
                      <tr>
                         <!-- Menampilkan nama tamu, email, kontak, serta opsi edit dan delete  -->
@@ -44,7 +44,9 @@ include '.includes/toast_notification.php';
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
+                                    <!-- opsi edit -->
                                     <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editTamu_<?= $tamu['tamu_id']; ?>"><i class="bx bx-edit-alt me-2"></i> Edit </a>
+                                    <!-- opsi delete -->
                                     <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteTamu_<?= $tamu['tamu_id']; ?>"><i class="bx bx-trash me-2"></i> Delete </a>
                                 </div>
                             </div>
@@ -65,7 +67,9 @@ include '.includes/toast_notification.php';
                                             <input type="hidden" name="tamu_id" value="<?= $tamu['tamu_id']; ?>">
                                         </div>
                                         <div class="modal-footer">
+                                            <!-- tombol batal -->
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <!-- tombol hapus -->
                                             <button type="submit" name="delete_tamu" class="btn btn-primary">Hapus</button>
                                         </div>
                                     </form>
@@ -87,22 +91,25 @@ include '.includes/toast_notification.php';
                                     <!-- Input tersembunyi untuk menyimpan ID Tamu -->
                                     <input type="hidden" name="tamu_id" value="<?= $tamu['tamu_id']; ?>">
                                     <div class="mb-3">
+                                        <!-- input nama tamu -->
                                         <label for="nama" class="form-label">Nama</label>
                                         <input type="text" class="form-control" name="nama" value="<?= $tamu['nama']; ?>">
                                     </div>
-
+                                    <!-- input kontak tamu -->
                                     <div class="mb-3">
                                         <label for="kontak" class="form-label">Kontak</label>
                                         <input type="text" class="form-control" name="kontak" value="<?= $tamu['kontak']; ?>">
                                     </div>
-
+                                    <!-- input email tamu -->
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="text" id="basic-default-email" name="email" class="form-control" value="<?= $tamu['email']; ?>">
                                     </div>
 
                                     <div class="modal-footer">
+                                        <!-- tombol batal -->
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <!-- tombol update -->
                                         <button type="submit" name="update_tamu" class="btn btn-warning">Update</button>
                                     </div>
                                     </form>

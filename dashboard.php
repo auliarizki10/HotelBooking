@@ -43,6 +43,7 @@ include '.includes/toast_notification.php';
                              ?>
 
                              <tr>
+                                <!-- Menampilkan nama, tipe kamar, harga kamar, tanggal check-in, tanggal check-out, serta opsi edit dan delete -->
                                 <td><?= $index++; ?></td>
                                 <td><?= $pemesanan['nama']; ?></td>
                                 <td><?= $pemesanan['category_name']; ?></td>
@@ -51,17 +52,17 @@ include '.includes/toast_notification.php';
                                 <td><?= $pemesanan['check_out']; ?></td>
                                 <td>
                                     <div class="dropdown">
-                                        <!-- Tombol dropdown untuk pilihan -->
+                                        <!-- Tombol dropdown untuk opsi edit dan delete-->
                                          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                          </button>
                                          <!-- menu dropdown -->
                                           <div class="dropdown-menu">
-                                            <!-- pilihan edit -->
+                                            <!-- opsi edit -->
                                              <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editPemesanan_<?= $pemesanan['pemesanan_id']; ?>">
                                                 <i class="bx bx-edit-alt me-2"></i> Edit 
                                              </a>
-                                             <!-- pilihan delete -->
+                                             <!-- opsi delete -->
                                              <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>">
                                                 <i class="bx bx-trash me-2"></i> Delete 
                                              </a>
@@ -70,7 +71,7 @@ include '.includes/toast_notification.php';
                                 </td>
                              </tr> 
 
-                             <!-- modal untuk hapus pemesanan --> 
+                             <!-- modal untuk hapus data pemesanan --> 
                              <div class="modal fade" id="deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -85,7 +86,9 @@ include '.includes/toast_notification.php';
                                                     <input type="hidden" name="pemesanan_id" value="<?=  $pemesanan['pemesanan_id']; ?>">
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <!-- tombol batal -->
                                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <!-- tombol hapus -->
                                                     <button type="submit" name="delete_pemesanan" class="btn btn-primary">Hapus</button>
                                                 </div>
                                             </form>
@@ -94,7 +97,7 @@ include '.includes/toast_notification.php';
                                 </div>
                              </div>
                             
-                             <!-- modal untuk edit pemesanan  -->
+                             <!-- modal untuk edit data pemesanan  -->
                              <div class="modal fade" id="editPemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
@@ -106,11 +109,12 @@ include '.includes/toast_notification.php';
                                         <form method="POST" action="proses_pemesanan.php">
                                         <!-- Input tersembunyi untuk menyimpan ID pemesanan -->
                                         <input type="hidden" name="pemesanan_id" value="<?= $pemesanan['pemesanan_id']; ?>">
+                                        <!-- input nama tamu -->
                                         <div class="mb-3">
                                             <label for="nama" class="form-label">Nama Tamu</label>
                                             <input type="text" class="form-control" name="nama" value="<?= $pemesanan['nama'];?>">
                                         </div>
-
+                                        <!-- dropdown tipe kamar -->
                                         <div class="mb-3">
                                             <label for="category_id" class="form-label">Tipe Kamar</label>
                                             <select class="form-select" name="category_id">
@@ -130,23 +134,24 @@ include '.includes/toast_notification.php';
                                                 ?>
                                             </select>
                                         </div>
-
+                                        <!-- input harga kamar -->
                                         <div class="mb-3">
                                             <label for="harga" class="form-label">Harga</label>
                                             <input type="number" class="form-control" name="harga" value="<?= $pemesanan['harga']; ?>">
                                         </div>
-
+                                        <!-- input tanggal check-in -->
                                         <div class="mb-3">
                                             <label class="form-label" for="checkin">Tanggal Check-In</label>
                                             <input type="date" id="checkin" class="form-control" name="check_in" value="<?= $pemesanan['check_in']; ?>" required>
                                         </div>
-
+                                         <!-- input tanggal check-out -->
                                         <div class="mb-3">
                                             <label class="form-label" for="checkout">Tanggal Check-Out</label>
                                             <input type="date" id="checkout" class="form-control" name="check_out" value="<?= $pemesanan['check_out']; ?>" required>
                                         </div>
 
                                         <div class="mb-3 text-end">
+                                            <!-- tombol simpan -->
                                         <button type="submit" name="update_pemesanan" class="btn btn-primary">Simpan</button>
                                     </div>
                                   </form>

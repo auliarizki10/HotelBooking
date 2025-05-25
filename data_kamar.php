@@ -22,7 +22,7 @@ include '.includes/toast_notification.php';
                         <th width="50px">#</th>
                         <th>Gambar</th>
                         <th>Tipe</th>
-                        <th>Harga</th>
+                        <th>Harga Kamar Per Malam</th>
                         <th>Status</th>
                         <th width="150px">Pilihan</th>
                     </tr>
@@ -31,9 +31,9 @@ include '.includes/toast_notification.php';
                     <!--Mengambil data kamar dari database--> 
                     <?php
                     $index = 1;
-                    $query = "SELECT kamar.*, categories.category_name FROM kamar LEFT JOIN categories ON kamar.category_id = categories.category_id";
-                    $exec = mysqli_query($conn, $query);
-                    while ($kamar = mysqli_fetch_assoc($exec)) :
+                    $query = "SELECT kamar.*, categories.category_name FROM kamar LEFT JOIN categories ON kamar.category_id = categories.category_id"; //query untuk mengambil data kamar
+                    $exec = mysqli_query($conn, $query); //menjalankan query
+                    while ($kamar = mysqli_fetch_assoc($exec)) : //perulangan untuk menampilkan setiap baris query
                     ?>
                      <tr>
                         <!-- Menampilkan nomor, gambar kamar, tipe kamar, harga kamar, status kamar, serta opsi edit dan delete -->
@@ -49,7 +49,9 @@ include '.includes/toast_notification.php';
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
+                                    <!-- opsi edit -->
                                     <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editKamar_<?= $kamar['kamar_id']; ?>"><i class="bx bx-edit-alt me-2"></i> Edit </a>
+                                    <!-- opsi delete -->
                                     <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteKamar_<?= $kamar['kamar_id']; ?>"><i class="bx bx-trash me-2"></i> Delete </a>
                                 </div>
                             </div>
@@ -70,7 +72,9 @@ include '.includes/toast_notification.php';
                                             <input type="hidden" name="kamar_id" value="<?= $kamar['kamar_id']; ?>">
                                         </div>
                                         <div class="modal-footer">
+                                            <!-- tombol batal -->
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <!-- tombol hapus -->
                                             <button type="submit" name="delete" class="btn btn-primary">Hapus</button>
                                         </div>
                                     </form>
@@ -125,7 +129,7 @@ include '.includes/toast_notification.php';
                                         </select>
                                     </div>
 
-                                    <!-- input untuk judul postingan -->
+                                    <!-- input harga kamar -->
                                         <div class="mb-3">
                                             <label for="harga" class="form-label">Harga</label>
                                             <input type="number" class="form-control" name="harga" value="<?= $kamar['harga']; ?>" required>
@@ -135,15 +139,16 @@ include '.includes/toast_notification.php';
                                         <div class="mb-3">
                                             <label for="kamar_id" class="form-label">Status</label>
                                              <select class="form-select" name="status" required>
-                                                <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
+                                                <!--mengambil data status dari database untuk mengisi opsi dropdown -->
                                                 <option value="" selected disabled>Pilih salah satu</option>
                                                 <option value="tersedia" <?=$kamar['status'] == 'tersedia' ? 'selected' : ''  ?>>Tersedia</option>
                                                 <option value="tidak tersedia" <?=$kamar['status'] == 'tidak tersedia' ? 'selected' : ''  ?>>Tidak Tersedia</option>
                                             </select>
                                         </div>
-
                                     <div class="modal-footer">
+                                        <!-- tombol batal -->
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <!-- tombol update -->
                                         <button type="submit" name="update" class="btn btn-warning">Update</button>
                                     </div>
                                     </form>
@@ -203,7 +208,7 @@ include '.includes/toast_notification.php';
             <div class="mb-3">
                 <label for="kamar_id" class="form-label">Status</label>
                 <select class="form-select" name="status" required>
-                    <!--mengambil data kategori dari database untuk mengisi opsi dropdown -->
+                    <!--mengambil data status dari database untuk mengisi opsi dropdown -->
                     <option value="" selected disabled>Pilih Status Kamar</option>
                     <option value="tersedia">Tersedia</option>
                     <option value="sudah dipesan">Sudah Dipesan</option>

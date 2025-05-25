@@ -3,6 +3,7 @@ html, body {
     padding: 0;
 }
 
+/* navbar garis menyala */
 .nav-link {
   position: relative;
 }
@@ -12,7 +13,7 @@ html, body {
   position: absolute;
   width: 100%;
   height: 2px;
-  background: #FFD700; /* Ganti dengan warna yang diinginkan */
+  background: #FFD700;
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -71,8 +72,8 @@ html, body {
 
   /* hover header text pertanyaan umum*/
   .accordion-button:not(.collapsed) {
-    background-color: #f1cd19; /* kuning tema web */
-    color: #212529; /* teks tetap terbaca */
+    background-color: #f1cd19; 
+    color: #212529; 
   }
 
 /* stepper css di contact user */

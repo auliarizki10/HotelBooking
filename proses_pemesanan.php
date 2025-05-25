@@ -32,13 +32,13 @@ if (isset($_POST['simpan'])) {
         //menyimpan notifikasi berhasil atau gagal ke dalam session
         if ($execPemesanan) {
             $_SESSION['notification'] = [
-                'type' => 'primary', 
+                'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
                 'message' => 'Pemesanan berhasil ditambahkan! Silahkan cek pada tombol notfikasi di atas.' 
             ];
         } else {
             $_SESSION['notification'] = [
-                'type' => 'danger', 
-                'message' => 'Gagal menambahkan pemesanan: ' . mysqli_error($conn)
+                'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
+                'message' => 'Gagal menambahkan pemesanan.' . mysqli_error($conn)
             ];
         }
     
@@ -60,12 +60,12 @@ if (isset($_POST['delete_tamu'])) {
     //menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Data tamu berhasil dihapus!'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger',
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
             'message' => 'Gagal menghapus data tamu.' . mysqli_error($conn)
         ];
     }
@@ -90,12 +90,12 @@ if (isset($_POST['update_tamu'])) {
     //menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Data tamu berhasil diperbarui!'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger',
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
             'message' => 'Gagal memperbarui data tamu: ' . mysqli_error($conn)
         ];
     }
@@ -117,12 +117,12 @@ if (isset($_POST['delete_pemesanan'])) {
     // menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Data pemesanan berhasil dihapus!'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger',
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
             'message' => 'Gagal menghapus data pemesanan.' . mysqli_error($conn)
         ];
     }
@@ -148,13 +148,13 @@ if (isset($_POST['update_pemesanan'])) {
     //menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Data pemesanan berhasil diperbarui!'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger',
-            'message' => 'Gagal memperbarui data tamu: ' . mysqli_error($conn)
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
+            'message' => 'Gagal memperbarui data pemesanan.' . mysqli_error($conn)
         ];
     }
 

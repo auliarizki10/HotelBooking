@@ -68,7 +68,9 @@ include '.includes/toast_notification.php';
                                             <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
                                         </div>
                                         <div class="modal-footer">
+                                            <!-- tombol batal -->
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <!-- tombol hapus -->
                                             <button type="submit" name="delete" class="btn btn-primary">Hapus</button>
                                         </div>
                                     </form>
@@ -94,7 +96,9 @@ include '.includes/toast_notification.php';
                                              <input type="text" value="<?= $category['category_name']; ?>" name="category_name" class="form-control">
                                          </div>
                                          <div class="modal-footer">
+                                            <!-- tombol batal -->
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <!-- tombol update -->
                                             <button type="submit" name="update" class="btn btn-warning">Update</button>
                                          </div>
                                     </form>
@@ -122,12 +126,14 @@ include '.includes/toast_notification.php';
             <div class="modal-body">
                 <form action="proses_kategori.php" method="POST">
                     <div>
-                        <label for="namaKategori" class="form-label">Nama Kategori</label>
                         <!-- Input untuk nama kategori baru -->
+                        <label for="namaKategori" class="form-label">Nama Kategori</label>
                          <input type="text" class="form-control" name="category_name" required/>
                     </div>
                     <div class="modal-footer">
+                        <!-- tombol batal -->
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                        <!-- tombol simpan -->
                         <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>

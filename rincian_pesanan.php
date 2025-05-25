@@ -22,7 +22,7 @@ $userId = $_SESSION['user_id'];
                                 <th width="50px">#</th>
                                 <th>Nama</th>
                                 <th>Tipe Kamar</th>
-                                <th>Harga Kamar / Malam</th>
+                                <th>Harga Kamar Per Malam</th>
                                 <th>Tanggal Check-in</th>
                                 <th>Tanggal Check-out</th>
                             </tr>
@@ -41,6 +41,7 @@ $userId = $_SESSION['user_id'];
                              ?>
 
                              <tr>
+                                <!-- Menampilkan nama, tipe kamar, harga kamar per malam, tanggal check-in, serta tanggal check-out -->
                                 <td><?= $index++; ?></td>
                                 <td><?= $pemesanan['nama']; ?></td>
                                 <td><?= $pemesanan['category_name']; ?></td>

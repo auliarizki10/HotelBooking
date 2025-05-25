@@ -18,13 +18,13 @@ if (isset($_POST['simpan'])) {
     //menyimpan notifikasi berhasil atau gagal ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary', //jenis notifikasi (contoh: denger untuk kegagalan)
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Kategori berhasil ditambahkan' 
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger', //jenis notifikasi (contoh: denger untuk kegagalan)
-            'message' => 'Gagal menambahkan kategori: ' . mysqli_error($conn)
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
+            'message' => 'Gagal menambahkan kategori.' . mysqli_error($conn)
         ];
     }
 
@@ -44,12 +44,12 @@ if (isset($_POST['delete'])) {
     //menyyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Kategori berhasil dihapus!'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger',
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
             'message' => 'Gagal menghapus kategori: ' . mysqli_error($conn)
         ];
     }
@@ -72,12 +72,12 @@ if (isset($_POST['update'])) {
     //menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Kategori berhasil diperbarui!'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger',
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
             'message' => 'Gagal memperbarui kategori: ' . mysqli_error($conn)
         ];
     }

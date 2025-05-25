@@ -28,20 +28,20 @@ if (isset($_POST['simpan'])) {
         if ($conn->query($query) === TRUE) {
             //notifikasi berhasil jika data kamar berhasil ditambahkan
             $_SESSION['notification'] = [
-                'type' => 'primary',
+                'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
                 'message' => 'Data kamar berhasil ditambahkan.'
             ];
         } else {
             //notifikasi error jika gagal menambahkan data kamar
             $_SESSION['notification'] = [
-                'type' => 'danger',
-                'message' => 'Gagal menambahkan data kamar: ' . $conn->error
+                'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
+                'message' => 'Gagal menambahkan data kamar.' . $conn->error
             ];
         }
     } else {
         //notifikasi error jika unggahan gambar gagal
         $_SESSION['notification'] = [
-            'type' => 'danger',
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
             'message' => 'Gagal mengunggah gambar.'
         ];
     }
@@ -51,28 +51,28 @@ if (isset($_POST['simpan'])) {
     exit();
 }
 
-//proses penghapusan postingan
+//proses penghapusan data kamar
 if (isset($_POST['delete'])) {
-    //mengambil ID post dari parameter URL
+    //mengambil ID kamar dari parameter URL
     $kamarID = $_POST['kamar_id'];
 
-    //query untuk menghapus post berdasarkan ID
+    //query untuk menghapus kamar berdasarkan ID
     $exec = mysqli_query($conn, "DELETE FROM kamar WHERE kamar_id='$kamarID'");
 
     //menyimpan notifikasi keberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Berhasil menghapus data kamar!'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' => 'danger',
-            'message' => 'Gagal menghapus data kamar: ' . mysqli_error($conn)
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
+            'message' => 'Gagal menghapus data kamar.' . mysqli_error($conn)
         ];
     }
 
-    //redirect kembali ke halaman dashboard
+    //redirect kembali ke halaman data_kamar.php
     header('Location: data_kamar.php');
     exit();
 }
@@ -116,13 +116,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     if ($conn->query($queryUpdate) === TRUE) {
         //notifikasi berhasil
         $_SESSION['notification'] = [
-            'type' => 'primary',
+            'type' => 'primary', //jenis notifikasi (primary untuk keberhasilan)
             'message' => 'Data kamar berhasil diperbarui.'
         ];
     } else {
         //notifikasi gagal
         $_SESSION['notification'] = [
-            'type' => 'danger',
+            'type' => 'danger', //jenis notifikasi (danger untuk kegagalan)
             'message' => 'Gagal memperbarui data kamar.'
         ];
     }

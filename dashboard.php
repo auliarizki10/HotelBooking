@@ -5,12 +5,12 @@ $title = "Dashboard";
 include '.includes/toast_notification.php';
 ?>
 <div class="container-xxl flex-grow-1 container-p-y">
-    <!-- Card untuk menampilkan tabel postingan -->
+    <!-- Card untuk menampilkan tabel pemesanan -->
     <div class="card">
         <!-- Tabel dengan baris yang dapat di hover -->
          <div class="card">
             <!-- Header tabel -->
-             <div class="card-header d-flex justify-content-between align-items-center bg-primary">
+             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4>Semua Pesanan</h4>
             </div>
              <div class="card-body">
@@ -20,77 +20,144 @@ include '.includes/toast_notification.php';
                         <thead>
                             <tr class="text-center">
                                 <th width="50px">#</th>
-                                <th>ID pemesanan</th>
-                                <th>ID tamu</th>
-                                <th>ID kamar</th>
+                                <th>Nama Tamu</th>
+                                <th>Tipe Kamar</th>
+                                <th>Harga Kamar / Malam</th>
                                 <th>Tanggal Check-in</th>
                                 <th>Tanggal Check-out</th>
+                                <th width="150px">Pilihan</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
                             <!-- menampilkan data dari tabel database -->
                              <?php
                              $index = 1; // variabel untuk nomor urut
-                             // query untuk mengambil data dari tabel posts, users, dan categories
-                             $query = "SELECT posts.*, users.name as user_name, categories.category_name FROM posts
-                             INNER JOIN users ON posts.user_id = users.user_id
-                             LEFT JOIN categories ON posts.category_id = categories.category_id
-                             WHERE posts.user_id = $userId";
+                             // query untuk mengambil data dari tabel pemesanan, tamu, dan kamar
+                             $query = "SELECT pemesanan.*, tamu.nama, categories.category_name FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN categories ON pemesanan.category_id = categories.category_id";
+                             
                              //eksekusi query
                              $exec = mysqli_query($conn, $query);
 
                              //perulangan untuk menampilkan setiap baris query
-                             while ($post = mysqli_fetch_assoc($exec)):
+                             while ($pemesanan = mysqli_fetch_assoc($exec)):
                              ?>
 
                              <tr>
+                                <!-- Menampilkan nama, tipe kamar, harga kamar, tanggal check-in, tanggal check-out, serta opsi edit dan delete -->
                                 <td><?= $index++; ?></td>
-                                <td><?= $post['post_title']; ?></td>
-                                <td><?= $post['user_name']; ?></td>
-                                <td><?= $post['category_name']; ?></td>
+                                <td><?= $pemesanan['nama']; ?></td>
+                                <td><?= $pemesanan['category_name']; ?></td>
+                                <td>Rp <?= number_format ($pemesanan['harga'], 0, ',', '.' ); ?></td>
+                                <td><?= $pemesanan['check_in']; ?></td>
+                                <td><?= $pemesanan['check_out']; ?></td>
                                 <td>
                                     <div class="dropdown">
-                                        <!-- Tombol dropdown untuk pilihan -->
+                                        <!-- Tombol dropdown untuk opsi edit dan delete-->
                                          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                          </button>
                                          <!-- menu dropdown -->
                                           <div class="dropdown-menu">
-                                            <!-- pilihan edit -->
-                                             <a href="edit_post.php?post_id=<?= $post['id_post']; ?>" class="dropdown-item">
-                                                <i class="bx bx-edit-alt me-2"></i> Edit
+                                            <!-- opsi edit -->
+                                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editPemesanan_<?= $pemesanan['pemesanan_id']; ?>">
+                                                <i class="bx bx-edit-alt me-2"></i> Edit 
                                              </a>
-                                             <!-- pilihan delete -->
-                                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletePost_<?= $post['id_post']; ?>">
-                                                <i class="bx bx-trash me-2"></i> Delete
+                                             <!-- opsi delete -->
+                                             <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>">
+                                                <i class="bx bx-trash me-2"></i> Delete 
                                              </a>
                                           </div>
                                     </div> 
                                 </td>
                              </tr> 
 
-                             <!-- modal untuk hapus konten blog --> 
-                             <div class="modal fade" id="deletePost_<?= $post['id_post']; ?>" tabindex="-1" aria-hidden="true">
+                             <!-- modal untuk hapus data pemesanan --> 
+                             <div class="modal fade" id="deletePemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Hapus Post?</h5>
+                                            <h5 class="modal-title">Hapus Data Pemesanan?</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="proses_post.php" method="POST">
+                                            <form action="proses_pemesanan.php" method="POST">
                                                 <div>
                                                     <p>Tindakan ini tidak bisa dibatalkan.</p>
-                                                    <input type="hidden" name="postID" value="<?=  $post['id_post']; ?>">
+                                                    <input type="hidden" name="pemesanan_id" value="<?=  $pemesanan['pemesanan_id']; ?>">
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <!-- tombol batal -->
                                                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" name="delete" class="btn btn-primary">Hapus</button>
+                                                    <!-- tombol hapus -->
+                                                    <button type="submit" name="delete_pemesanan" class="btn btn-primary">Hapus</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
+                             </div>
+                            
+                             <!-- modal untuk edit data pemesanan  -->
+                             <div class="modal fade" id="editPemesanan_<?= $pemesanan['pemesanan_id']; ?>" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Edit Data Pemesanan</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                         <!-- Form di dalam Modal -->
+                                        <form method="POST" action="proses_pemesanan.php">
+                                        <!-- Input tersembunyi untuk menyimpan ID pemesanan -->
+                                        <input type="hidden" name="pemesanan_id" value="<?= $pemesanan['pemesanan_id']; ?>">
+                                        <!-- input nama tamu -->
+                                        <div class="mb-3">
+                                            <label for="nama" class="form-label">Nama Tamu</label>
+                                            <input type="text" class="form-control" name="nama" value="<?= $pemesanan['nama'];?>">
+                                        </div>
+                                        <!-- dropdown tipe kamar -->
+                                        <div class="mb-3">
+                                            <label for="category_id" class="form-label">Tipe Kamar</label>
+                                            <select class="form-select" name="category_id">
+                                                <option value="" selected disabled>Pilih salah satu</option>
+                                                <?php
+                                                    //mengambil data kategori dari database
+                                                    $queryCategories = "SELECT * FROM categories";
+                                                    $resultCategories = $conn->query($queryCategories);
+                                                    //menambahkan opsi ke dropdown
+                                                    if ($resultCategories->num_rows > 0) {
+                                                        while ($row = $resultCategories->fetch_assoc()) {
+                                                            //menandai kategori yang sudah dipilih
+                                                            $selected = ($row["category_id"] == $pemesanan['category_id']) ? "selected" : "";
+                                                            echo "<option value='" . $row["category_id"] . "' $selected>" . $row["category_name"] . "</option>";
+                                                        }
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <!-- input harga kamar -->
+                                        <div class="mb-3">
+                                            <label for="harga" class="form-label">Harga</label>
+                                            <input type="number" class="form-control" name="harga" value="<?= $pemesanan['harga']; ?>">
+                                        </div>
+                                        <!-- input tanggal check-in -->
+                                        <div class="mb-3">
+                                            <label class="form-label" for="checkin">Tanggal Check-In</label>
+                                            <input type="date" id="checkin" class="form-control" name="check_in" value="<?= $pemesanan['check_in']; ?>" required>
+                                        </div>
+                                         <!-- input tanggal check-out -->
+                                        <div class="mb-3">
+                                            <label class="form-label" for="checkout">Tanggal Check-Out</label>
+                                            <input type="date" id="checkout" class="form-control" name="check_out" value="<?= $pemesanan['check_out']; ?>" required>
+                                        </div>
+
+                                        <div class="mb-3 text-end">
+                                            <!-- tombol simpan -->
+                                        <button type="submit" name="update_pemesanan" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                  </form>
+                                </div>
+                               </div>
+                              </div>
                              </div>
                              <?php endwhile; ?>
                         </tbody>
@@ -101,7 +168,6 @@ include '.includes/toast_notification.php';
         <!-- akhir tabel dengan baris yang dapat di hover-->
     </div>
 </div>
-
 
 <?php
 include (".includes/footer.php");

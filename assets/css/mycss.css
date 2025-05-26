@@ -3,7 +3,24 @@ html, body {
     padding: 0;
 }
 
-/* mengatur penempatan video */
+/* navbar garis menyala */
+.nav-link {
+  position: relative;
+}
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #FFD700;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  width: 100%;
+}
+
+/* mengatur penempatan video pada file dashboard user*/
 .video-wrapper { 
     height: 80%; 
     z-index: -1; 
@@ -11,7 +28,79 @@ html, body {
 
 .video-bg {
     width: 100%;
-    height: 110%;
-    object-fit: cover; /
+    height: 100%;
+    object-fit: cover;   
 }
-/* /mengatur penempatan video */
+
+.gallery-top {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .gallery-top .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .gallery-thumbs {
+    height: 100px;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+  
+  .gallery-thumbs .swiper-slide {
+    height: 100%;
+    opacity: 0.4;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 2px solid #ffa200;
+  }
+  
+  .gallery-thumbs .swiper-slide img {
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* hover header text pertanyaan umum*/
+  .accordion-button:not(.collapsed) {
+    background-color: #f1cd19; 
+    color: #212529; 
+  }
+
+/* stepper css di contact user */
+.bs-stepper .step .bs-stepper-circle {
+  background-color: #f1cd19;
+  color: #fff;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.bs-stepper .step.active .bs-stepper-title {
+  color: #f1cd19;
+}
+
+.bs-stepper .step .step-trigger {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.bs-stepper .step .bs-stepper-label {
+  margin-left: 0.75rem;
+  text-align: left;
+}

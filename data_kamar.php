@@ -211,7 +211,7 @@ include '.includes/toast_notification.php';
                     <!--mengambil data status dari database untuk mengisi opsi dropdown -->
                     <option value="" selected disabled>Pilih Status Kamar</option>
                     <option value="tersedia">Tersedia</option>
-                    <option value="sudah dipesan">Sudah Dipesan</option>
+                    <option value="tidak tersedia">Tidak Tersedia</option>
                 </select>
             </div>
 

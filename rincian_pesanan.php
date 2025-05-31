@@ -31,7 +31,7 @@ $userId = $_SESSION['user_id'];
                             <!-- menampilkan data dari tabel database -->
                              <?php
                              $index = 1; // variabel untuk nomor urut
-                             // query untuk mengambil data dari tabel pemesanan, tamu, dan kamar
+                             // query untuk mengambil data dari tabel pemesanan, tamu, dan categories
                              $query = "SELECT pemesanan.*, tamu.nama, categories.category_name FROM pemesanan INNER JOIN tamu ON pemesanan.tamu_id = tamu.tamu_id LEFT JOIN categories ON pemesanan.category_id = categories.category_id WHERE pemesanan.user_id = $userId";
                              //eksekusi query
                              $exec = mysqli_query($conn, $query);
